@@ -1,0 +1,957 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>B Hotel Bishkek</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Демонстрационный сайт отеля B Hotel Bishkek: номера, ресторан Buono, конференц-залы и тестовое бронирование.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Layout concept: dark graphite and warm cream bands like the reference, brass accent,
+   slatted-wall light as the one memorable motif. Desktop: wide editorial bands.
+   Mobile: bottom tab bar, one-hand reach, sticky booking summary. */
+:root{
+  --ink:#2d2a26; --ink-2:#3a3631; --ink-3:#47423b;
+  --brass:#d2ad6b; --brass-hi:#ecd09a; --brass-ink:#7a5a22;
+  --cream:#f8f2e8; --paper:#fffcf6; --blush:#f3e3d0;
+  --sage:#a9c7b1; --sage-ink:#35684d;
+  --text-d:#2a2620; --text-l:#fbf5ea; --mute-d:#5c5447; --mute-l:#d3c9b8;
+  --line-d:rgba(42,38,32,.16); --line-l:rgba(251,245,234,.22);
+  --ok:#a8d8b0; --ok-d:#2c6a3b; --warn:#f0c670; --warn-d:#75500c; --bad:#f0a99d; --bad-d:#a03626;
+  --serif:'Playfair Display','Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --sans:'Manrope','Jost',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --shadow:0 10px 32px rgba(70,52,22,.09);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--ink);color:var(--text-l);font:400 16px/1.7 var(--sans);-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--ink);z-index:60}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:500;line-height:1.15;margin:0;text-wrap:balance;letter-spacing:-.005em}
+h1{font-size:clamp(2.15rem,5.4vw,4.1rem);line-height:1.12}
+h2{font-size:clamp(1.7rem,3.3vw,2.6rem);line-height:1.18}
+h3{font-size:1.4rem;line-height:1.2}
+h4{font-size:1.12rem}
+p{margin:0;max-width:62ch}
+a{color:inherit}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--acc,var(--brass-hi));outline-offset:3px}
+.band-d{background:var(--ink);color:var(--text-l);--fg:var(--text-l);--mute:var(--mute-l);--ln:var(--line-l);--acc:var(--brass);color-scheme:dark}
+.band-d2{background:radial-gradient(60% 80% at 100% 0%,rgba(210,173,107,.14),transparent 70%),var(--ink-2);color:var(--text-l);--fg:var(--text-l);--mute:var(--mute-l);--ln:var(--line-l);--acc:var(--brass);color-scheme:dark}
+.band-l{background:linear-gradient(180deg,var(--paper),var(--cream));color:var(--text-d);--fg:var(--text-d);--mute:var(--mute-d);--ln:var(--line-d);--acc:var(--brass-ink);color-scheme:light}
+.wrap{max-width:1240px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media(min-width:900px){.wrap{padding-left:max(32px,env(safe-area-inset-left,0px));padding-right:max(32px,env(safe-area-inset-right,0px))}}
+.sec{padding-block:clamp(64px,9vw,128px)}
+.mute{color:var(--mute)}
+.acc{color:var(--acc)}
+.skip{position:absolute;left:-999px;top:8px;z-index:100;background:var(--brass);color:#241d10;padding:10px 16px;border:0}
+.skip:focus{left:8px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:12px 28px;background:var(--brass);color:#241d10;border:1px solid var(--brass);border-radius:3px;font:600 .92rem/1 var(--sans);letter-spacing:.02em;text-decoration:none;cursor:pointer;transition:background .2s,border-color .2s}
+.btn:hover{background:var(--brass-hi);border-color:var(--brass-hi)}
+.btn.ghost{background:transparent;color:var(--fg,var(--text-l));border-color:var(--acc,var(--brass))}
+.btn.ghost:hover{background:var(--acc,var(--brass));color:#241d10}
+.band-l .btn.ghost:hover{color:#fffcf6}
+.btn.sm{min-height:40px;padding:8px 16px;font-size:.86rem}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.btn.danger{background:transparent;color:var(--bad-d);border-color:var(--bad-d)}
+.band-d .btn.danger,.band-d2 .btn.danger{color:var(--bad);border-color:var(--bad)}
+.tl{background:none;border:0;padding:0;color:var(--acc);text-decoration:underline;text-underline-offset:4px;cursor:pointer;font:inherit}
+.i{flex:none;vertical-align:middle}
+
+/* header */
+.util{background:var(--brass);color:#241d10;font-size:.85rem;font-weight:500}
+.util .wrap{display:flex;justify-content:space-between;gap:16px;padding-block:8px;flex-wrap:wrap}
+.util span{display:inline-flex;gap:8px;align-items:center}
+.util a{text-decoration:none}
+.hdr{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--ink);border-bottom:1px solid var(--line-l)}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:68px}
+.logo{display:inline-flex;align-items:center;gap:12px;text-decoration:none}
+.mono{width:40px;height:40px;border:1px solid var(--brass);border-radius:50%;display:grid;place-items:center;font:500 1.4rem/1 var(--serif);color:var(--brass-hi);padding-bottom:2px}
+.wm{display:grid;line-height:1}
+.wm b{font:500 1.28rem/1 var(--serif);letter-spacing:.04em}
+.wm i{font:500 .68rem/1.5 var(--sans);letter-spacing:.32em;color:var(--brass);font-style:normal;text-transform:uppercase}
+.nav{display:none;gap:30px}
+.nav a{text-decoration:none;font-size:.94rem;font-weight:500;padding:6px 0;border-bottom:1px solid transparent}
+.nav a:hover,.nav a[aria-current=page]{border-color:var(--brass);color:var(--brass-hi)}
+.hdr .right{display:none;gap:16px;align-items:center}
+.menu-btn{background:none;border:1px solid var(--line-l);width:48px;height:48px;display:grid;place-items:center;cursor:pointer}
+@media(min-width:960px){.nav{display:flex}.hdr .right{display:flex}.menu-btn{display:none}.hdr .wrap{min-height:84px}}
+@media(max-width:959px){.util{display:none}}
+
+/* mobile tab bar and sheet */
+.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:35;background:rgba(45,42,38,.98);border-top:1px solid var(--line-l);display:grid;grid-template-columns:repeat(5,1fr);padding:6px max(8px,env(safe-area-inset-right,0px)) calc(6px + env(safe-area-inset-bottom,0px)) max(8px,env(safe-area-inset-left,0px))}
+.tabbar a,.tabbar button{display:grid;justify-items:center;gap:2px;padding:6px 2px;min-height:54px;text-decoration:none;background:none;border:0;font-size:.74rem;font-weight:500;color:var(--mute-l);cursor:pointer}
+.tabbar [aria-current=page]{color:var(--brass-hi)}
+.tabbar .go{color:#241d10}
+.tabbar .go span.pill-go{width:52px;height:52px;border-radius:50%;background:var(--brass);display:grid;place-items:center;margin-top:-22px;border:4px solid var(--ink)}
+.tabbar .go small{color:var(--brass-hi);font-size:.74rem}
+@media(min-width:960px){.tabbar{display:none}}
+@media(max-width:959px){.shell{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}}
+.sheet{position:fixed;inset:0;z-index:70;background:var(--ink);overflow:auto;padding:calc(16px + env(safe-area-inset-top,0px)) max(20px,env(safe-area-inset-right,0px)) calc(24px + env(safe-area-inset-bottom,0px)) max(20px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:28px}
+.sheet .top{display:flex;justify-content:space-between;align-items:center}
+.sheet nav{display:grid}
+.sheet nav a{font:500 1.7rem/1 var(--serif);text-decoration:none;padding:16px 0;border-bottom:1px solid var(--line-l)}
+.sheet nav a[aria-current=page]{color:var(--brass-hi)}
+.sheet .meta{display:grid;gap:10px;color:var(--mute-l);font-size:.95rem}
+.sheet .meta a{color:var(--text-l)}
+html.lock{overflow:hidden}
+
+/* photo slots */
+.pic,.ph{width:100%;height:100%;object-fit:cover}
+.ph{position:relative;overflow:hidden;
+  background:radial-gradient(70% 55% at var(--gx,72%) var(--gy,22%),rgba(236,205,146,.46),transparent 70%),
+  repeating-linear-gradient(90deg,rgba(255,255,255,.07) 0 2px,transparent 2px 26px),
+  linear-gradient(165deg,#675c4d,#35302a)}
+.ph::after{content:"";position:absolute;inset:auto 0 0 0;height:36%;background:linear-gradient(to top,rgba(30,22,10,.28),transparent)}
+.ph.light{background:radial-gradient(70% 55% at var(--gx,72%) var(--gy,22%),rgba(255,252,243,.85),transparent 70%),repeating-linear-gradient(90deg,rgba(120,92,44,.07) 0 2px,transparent 2px 26px),linear-gradient(165deg,#f5ecdc,#d6c6a6)}
+.ph.light::after{background:linear-gradient(to top,rgba(90,66,28,.16),transparent)}
+.ph.green{background:radial-gradient(70% 55% at var(--gx,30%) var(--gy,25%),rgba(200,230,200,.45),transparent 70%),repeating-linear-gradient(90deg,rgba(255,255,255,.07) 0 2px,transparent 2px 26px),linear-gradient(165deg,#7b9a84,#3c4c41)}
+.ph small{position:absolute;left:12px;bottom:10px;z-index:1;font-size:.7rem;letter-spacing:.04em;color:rgba(255,255,255,.78)}
+.ph.light small{color:rgba(60,44,18,.72)}
+.ar-43{aspect-ratio:4/3}.ar-32{aspect-ratio:3/2}.ar-45{aspect-ratio:4/5}.ar-169{aspect-ratio:16/9}.ar-11{aspect-ratio:1/1}
+.frame{display:block;position:relative;overflow:hidden;max-width:100%;border-radius:3px}
+.frame>.ph,.frame>.pic{position:absolute;inset:0}
+@media(max-width:999px){.sticky{position:static}}
+
+/* hero */
+.hero{position:relative;min-height:clamp(500px,70vh,720px);display:grid;place-items:center;text-align:center;overflow:hidden;isolation:isolate}
+.hero>.ph,.hero>.pic{position:absolute;inset:0;z-index:-2}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to bottom,rgba(45,42,38,.38),rgba(45,42,38,.12) 45%,rgba(45,42,38,.62))}
+.hero-in{padding-block:84px;display:grid;justify-items:center;gap:22px;max-width:860px}
+.hero-in p{font:400 1.08rem/1.65 var(--sans);color:#fbf5ea;max-width:52ch;text-shadow:0 1px 14px rgba(30,22,10,.45)}
+.hero-in .row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.stars{display:inline-flex;gap:4px;color:var(--brass)}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.hero-in>*{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.hero-in>*:nth-child(2){animation-delay:.12s}.hero-in>*:nth-child(3){animation-delay:.24s}.hero-in>*:nth-child(4){animation-delay:.36s}
+@media(prefers-reduced-motion:reduce){.hero-in>*{animation:none}.btn,.card{transition:none}}
+
+/* forms */
+.fl{display:grid;gap:6px;font-size:.86rem;font-weight:500;color:var(--mute);min-width:0}
+.fl>span{line-height:1.2}
+input,select,textarea{font:inherit;font-size:16px;color:var(--fg,var(--text-l));background:rgba(255,255,255,.05);border:1px solid var(--ln,var(--line-l));border-radius:3px;padding:11px 12px;min-height:48px;width:100%;min-width:0}
+textarea{min-height:96px;resize:vertical}
+select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23b88a35' stroke-width='1.5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:38px}
+select option{color:#2a2620;background:#fffcf6}
+.band-l input,.band-l select,.band-l textarea{background:var(--paper);border-color:rgba(42,38,32,.28)}
+input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--acc,var(--brass-hi));outline-offset:1px;border-color:var(--acc,var(--brass))}
+input[aria-invalid=true],select[aria-invalid=true],textarea[aria-invalid=true]{border-color:var(--bad-d)}
+.band-d input[aria-invalid=true],.band-d2 input[aria-invalid=true]{border-color:var(--bad)}
+.chk{display:flex;gap:12px;align-items:flex-start;font-size:.93rem;color:var(--fg)}
+.chk input{width:22px;height:22px;min-height:22px;margin-top:2px;accent-color:var(--brass-ink);flex:none;background:none;border-radius:3px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.err{border:1px solid var(--bad-d);background:rgba(160,54,38,.07);border-radius:3px;color:var(--bad-d);padding:14px 16px;margin-bottom:18px;font-size:.94rem}
+.err ul{margin:6px 0 0;padding-left:20px}
+.band-d .err,.band-d2 .err{border-color:var(--bad);color:var(--bad);background:rgba(240,169,157,.1)}
+.note{border:1px solid rgba(210,173,107,.55);background:rgba(210,173,107,.13);padding:14px 16px;font-size:.92rem;color:var(--fg);border-radius:3px}
+.grid2{display:grid;gap:16px;grid-template-columns:1fr 1fr}
+.grid3{display:grid;gap:16px;grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:560px){.grid3{grid-template-columns:1fr 1fr}.grid3 .full{grid-column:1/-1}}
+
+/* quick bar */
+.qb{background:var(--ink-2);border-top:1px solid var(--line-l);box-shadow:0 -1px 0 rgba(236,208,154,.18) inset}
+.qb form{display:grid;gap:14px 10px;grid-template-columns:repeat(6,minmax(0,1fr));padding-block:22px;align-items:end}
+.qb form>.fl{grid-column:span 2}.qb form>.fl:nth-child(-n+2){grid-column:span 3}
+.qb .btn{grid-column:1/-1}
+@media(min-width:960px){.qb form{grid-template-columns:1.2fr 1.2fr .8fr .8fr .8fr 1.3fr;gap:16px;padding-block:26px}.qb form>.fl,.qb form>.fl:nth-child(-n+2),.qb .btn{grid-column:auto}}
+.qb .fl{font-size:.88rem;font-weight:600;color:var(--text-l)}
+.qb input,.qb select{font-family:var(--sans)}
+
+/* intro */
+.split{display:grid;gap:40px;align-items:center}
+@media(min-width:900px){.split{grid-template-columns:1.05fr 1fr;gap:72px}.split.rev>:first-child{order:2}}
+.collage{position:relative;padding-bottom:18%}
+.collage .a{width:76%}
+.collage .b{position:absolute;right:0;bottom:0;width:52%;border:8px solid var(--paper);box-shadow:var(--shadow)}
+.checks{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.checks li{display:flex;gap:12px;align-items:flex-start}
+.checks .i{color:var(--acc);margin-top:3px}
+.band-l .checks .i,.band-l .svc .i{color:var(--sage-ink)}
+#green .svc .i{color:var(--sage)}
+.stack{display:grid;gap:22px}
+.stack-s{display:grid;gap:12px}
+.eyebrow{font-size:.9rem;font-weight:600;color:var(--acc);letter-spacing:.02em}
+
+/* category cards (home) */
+.cats{display:grid;gap:18px;margin-top:40px;grid-auto-flow:column;grid-auto-columns:78%;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px;scrollbar-width:thin}
+.cats>*{scroll-snap-align:center}
+@media(min-width:900px){.cats{grid-auto-flow:row;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-columns:auto;overflow:visible;gap:28px;align-items:start}.cats>*:nth-child(2){margin-top:-28px}}
+.card{background:linear-gradient(180deg,#e3c68e,#d2ad6b);color:#241d10;padding:12px 12px 26px;display:grid;gap:14px;text-align:center;text-decoration:none;transition:transform .25s,box-shadow .25s;border-radius:4px;box-shadow:0 14px 36px rgba(20,14,4,.22)}
+.card:hover{transform:translateY(-4px);box-shadow:0 20px 44px rgba(20,14,4,.28)}
+.card h3{font-size:1.45rem}
+.card .meta{display:flex;gap:16px;justify-content:center;font-size:.88rem;font-weight:500}
+.card .meta span{display:inline-flex;gap:6px;align-items:center}
+.card .more{text-decoration:underline;text-underline-offset:4px;font-weight:700}
+
+/* facts */
+.facts{display:grid;gap:0;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--ln)}
+.facts>div{padding:18px 12px 18px 0;border-bottom:1px solid var(--ln)}
+.facts b{display:block;font:500 clamp(1.5rem,3.6vw,2.3rem)/1.1 var(--serif);color:var(--acc)}
+.facts span{font-size:.86rem;color:var(--mute)}
+.svc{display:grid;gap:0;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--ln)}
+.svc>div{padding:22px 16px 22px 0;border-bottom:1px solid var(--ln);display:grid;gap:10px;align-content:start}
+.svc .i{color:var(--acc)}
+.svc b{font:500 1.1rem/1.25 var(--serif)}
+.svc p{font-size:.92rem;color:var(--mute)}
+@media(min-width:900px){.svc{grid-template-columns:repeat(3,minmax(0,1fr))}.svc>div{padding-right:32px}}
+.quote{display:grid;gap:10px;border-top:1px solid var(--ln);padding-top:18px}
+.quote q{font:italic 400 1.2rem/1.5 var(--serif);quotes:none}
+.quote span{font-size:.88rem;color:var(--mute)}
+.qs{display:grid;gap:26px}
+@media(min-width:900px){.qs{grid-template-columns:repeat(3,minmax(0,1fr));gap:36px}}
+.rate{display:flex;align-items:baseline;gap:12px;margin-bottom:28px}
+.rate b{font:500 2.6rem/1 var(--serif);color:var(--brass-hi)}
+
+/* page header */
+.ph-head{padding-block:clamp(52px,8vw,104px) clamp(40px,5vw,72px)}
+.ph-head .stack{max-width:760px}
+.crumbs{font-size:.86rem;color:var(--mute-l);display:flex;gap:8px;flex-wrap:wrap}
+.crumbs a{color:var(--brass-hi)}
+
+/* rooms catalog */
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{min-height:44px;padding:8px 18px;border:1px solid var(--ln);border-radius:999px;background:transparent;cursor:pointer;font-size:.9rem;font-weight:500;color:var(--fg)}
+.chip[aria-pressed=true]{background:var(--brass);border-color:var(--brass);color:#241d10;font-weight:600}
+.rgrid{display:grid;gap:24px;margin-top:28px}
+@media(min-width:700px){.rgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:1100px){.rgrid{grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}}
+.rc{background:var(--ink-2);display:grid;grid-template-rows:auto 1fr;border:1px solid var(--line-l);border-radius:4px;overflow:hidden;box-shadow:0 12px 32px rgba(20,14,4,.16)}
+.rc .body{padding:22px 22px 24px;display:grid;gap:12px;align-content:start}
+.rc .tags{display:flex;gap:14px;flex-wrap:wrap;font-size:.88rem;color:var(--mute-l)}
+.rc .tags span{display:inline-flex;gap:6px;align-items:center}
+.rc .price{display:flex;justify-content:space-between;align-items:baseline;gap:10px;border-top:1px solid var(--line-l);padding-top:12px}
+.rc .price b{font:500 1.6rem/1 var(--serif);color:var(--brass-hi)}
+.rc .acts{display:flex;gap:10px;flex-wrap:wrap}
+.avail{font-size:.86rem}
+.avail{font-weight:500}.avail.ok{color:var(--ok)}.avail.no{color:var(--bad)}
+.chk-bar{background:var(--ink-2);border:1px solid var(--line-l);border-radius:4px;padding:18px;display:grid;gap:14px;grid-template-columns:repeat(2,minmax(0,1fr));align-items:end}
+@media(min-width:700px){.chk-bar{grid-template-columns:1fr 1fr 2fr;padding:20px 24px}}
+.chk-bar p{grid-column:1/-1;font-size:.9rem}
+@media(min-width:700px){.chk-bar p{grid-column:auto;align-self:center}}
+
+/* room detail */
+.gal{display:grid;gap:10px}
+.gal .main{position:relative}
+.gal .thumbs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.gal .thumbs button{position:relative;padding:0;border:1px solid transparent;background:none;cursor:pointer;aspect-ratio:4/3;overflow:hidden}
+.gal .thumbs button{border-radius:3px}.gal .thumbs button[aria-pressed=true]{border-color:var(--brass-ink);box-shadow:0 0 0 1px var(--brass-ink)}
+.det{display:grid;gap:36px}
+@media(min-width:1000px){.det{grid-template-columns:minmax(0,1fr) 380px;gap:56px;align-items:start}}
+.panel{background:var(--ink-2);border:1px solid var(--line-l);border-radius:4px;box-shadow:var(--shadow);padding:24px;display:grid;gap:16px}
+.sticky{position:sticky;top:calc(env(safe-area-inset-top,0px) + 100px)}
+.cols2{columns:1;column-gap:32px;list-style:none;padding:0;margin:0}
+@media(min-width:700px){.cols2{columns:2}}
+.cols2 li{break-inside:avoid;padding:9px 0;border-bottom:1px solid var(--ln);display:flex;gap:10px}
+.cols2 .i{color:var(--acc);margin-top:3px}
+.kv{display:grid;gap:0}
+.kv div{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid var(--ln)}
+.kv span:first-child{color:var(--mute)}
+.kv b{font-weight:600;text-align:right}
+.tot{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.tot b{font:500 1.9rem/1 var(--serif);color:var(--brass-hi)}
+.band-l .tot b{color:var(--brass-ink)}
+.band-l .panel .tot b,.band-l .sum .tot b{color:var(--brass-hi)}
+
+/* booking */
+.bk{display:grid;gap:36px}
+@media(min-width:1000px){.bk{grid-template-columns:minmax(0,1fr) 390px;gap:56px;align-items:start}}
+.step{display:grid;gap:18px;padding-bottom:34px;margin-bottom:34px;border-bottom:1px solid var(--ln)}
+.step h3{display:flex;align-items:center;gap:12px}
+.step h3 .n{width:34px;height:34px;border:1px solid var(--acc);color:var(--acc);display:inline-grid;place-items:center;font:500 1rem/1 var(--serif);border-radius:50%}
+.rp{position:relative}
+.rp input{position:absolute;opacity:0;inset:0;width:100%;height:100%;cursor:pointer;min-height:0;margin:0}
+.rp .rpc{display:grid;gap:6px;padding:16px 18px;border:1px solid rgba(42,38,32,.2);border-radius:4px;background:var(--paper);box-shadow:0 4px 16px rgba(70,52,22,.05);pointer-events:none;transition:border-color .2s,box-shadow .2s}
+.rp input:checked+.rpc{border-color:var(--brass-ink);box-shadow:inset 0 0 0 1px var(--brass-ink),0 6px 20px rgba(122,90,34,.14);background:#fff8e8}
+.rp input:focus-visible+.rpc{outline:2px solid var(--brass-ink);outline-offset:2px}
+.rp input:disabled+.rpc{opacity:.55;background:transparent}
+.rp input:disabled{cursor:not-allowed}
+.rpc .r1{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.rpc .r1 b{font:500 1.18rem/1.2 var(--serif)}
+.rpc .r1 span{font:500 1.05rem/1 var(--serif);color:var(--brass-ink)}
+.rpc small{color:var(--mute-d);font-size:.86rem}
+.rpc small b{font-weight:700;color:var(--text-d)}
+.rpc .av{font-size:.86rem;font-weight:600;color:var(--ok-d)}
+.rpc .av.no{color:var(--bad-d)}
+.rlist{display:grid;gap:12px}
+.sum{border-radius:4px;box-shadow:var(--shadow);background:var(--ink-2);color:var(--text-l);--fg:var(--text-l);--mute:var(--mute-l);--ln:var(--line-l);--acc:var(--brass);padding:24px;display:grid;gap:16px}
+.bkbar{position:fixed;left:0;right:0;bottom:0;z-index:35;background:var(--ink);border-top:1px solid var(--line-l);padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));display:flex;gap:14px;align-items:center;justify-content:space-between}
+.bkbar b{font:500 1.5rem/1 var(--serif);color:var(--brass-hi)}
+.bkbar small{display:block;color:var(--mute-l);font-size:.78rem;line-height:1.2}
+@media(min-width:1000px){.bkbar{display:none}}
+@media(max-width:999px){.shell.bk-on{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}}
+
+/* confirmation */
+.code{font:500 clamp(1.7rem,5vw,2.7rem)/1 var(--serif);letter-spacing:.06em;color:var(--brass-ink);border:1px solid var(--brass-ink);border-radius:4px;background:rgba(210,173,107,.12);padding:14px 22px;display:inline-block}
+
+/* admin */
+.stats{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(min-width:800px){.stats{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.stat{border:1px solid var(--ln);border-radius:4px;box-shadow:var(--shadow);padding:18px;background:var(--paper)}
+.stat b{display:block;font:500 1.7rem/1.1 var(--serif);color:var(--brass-ink)}
+.stat span{font-size:.86rem;color:var(--mute-d)}
+.tools{display:grid;gap:12px}
+@media(min-width:800px){.tools{grid-template-columns:auto 200px 1fr;align-items:end}}
+.adm{display:grid;gap:12px;margin-top:20px}
+.arow{border:1px solid var(--ln);border-radius:4px;background:var(--paper);box-shadow:0 4px 16px rgba(70,52,22,.05)}
+.arow>.hd{display:grid;gap:10px;padding:16px;grid-template-columns:1fr auto;align-items:start}
+@media(min-width:900px){.arow>.hd{grid-template-columns:110px 130px minmax(0,1.4fr) minmax(0,1.6fr) 90px 130px;align-items:center}}
+.arow .code-s{font:500 1rem/1 var(--sans);letter-spacing:.06em}
+.badge{display:inline-block;font-size:.78rem;font-weight:500;padding:2px 9px;border:1px solid var(--ln);border-radius:999px;color:var(--mute-d)}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:.82rem;font-weight:600;padding:3px 11px;border:1px solid currentColor;border-radius:999px;white-space:nowrap}
+.pill.new{color:var(--warn-d);background:rgba(240,198,112,.2)}.pill.confirmed{color:var(--sage-ink);background:rgba(169,199,177,.28)}.pill.cancelled{color:var(--bad-d);background:rgba(240,169,157,.2)}
+.arow .more{border-top:1px solid var(--ln);padding:14px 16px 16px;display:grid;gap:12px}
+.arow .acts{display:flex;gap:10px;flex-wrap:wrap}
+.arow summary{cursor:pointer;color:var(--brass-ink);padding:10px 16px;border-top:1px solid var(--ln);font-size:.9rem}
+.mobhide{display:none}
+@media(min-width:900px){.mobhide{display:block}}
+.empty{border:1px dashed var(--ln);border-radius:4px;padding:36px 20px;text-align:center;color:var(--mute-d)}
+
+/* footer */
+.ft{padding-block:56px 36px;border-top:1px solid var(--line-l)}
+.ft .cols{display:grid;gap:36px}
+@media(min-width:900px){.ft .cols{grid-template-columns:1.4fr 1fr 1fr 1fr}}
+.ft h4{font-size:1.1rem;color:var(--brass-hi);margin-bottom:12px}
+.ft ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.ft a{text-decoration:none;color:var(--text-l)}
+.ft a:hover{color:var(--brass-hi)}
+.ft .legal{margin-top:36px;padding-top:20px;border-top:1px solid var(--line-l);font-size:.84rem;color:var(--mute-l);display:flex;gap:14px 28px;flex-wrap:wrap;justify-content:space-between}
+.copy{display:inline-flex;align-items:center;gap:6px}
+.crow{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.cbtn{background:var(--paper);border:1px solid var(--ln);border-radius:999px;min-height:36px;padding:4px 14px;cursor:pointer;display:inline-flex;gap:6px;align-items:center;font-size:.82rem;font-weight:500;color:var(--fg)}
+#toast{position:fixed;left:50%;bottom:calc(92px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:80;background:var(--brass);color:#241d10;font-weight:600;border-radius:999px;box-shadow:0 8px 24px rgba(20,14,4,.3);padding:10px 18px;font-size:.92rem;opacity:0;pointer-events:none;transition:opacity .25s;max-width:calc(100vw - 32px)}
+#toast.on{opacity:1}
+@media(min-width:960px){#toast{bottom:32px}}
+</style>
+<div id="app"></div>
+<div id="toast" role="status" aria-live="polite"></div>
+<script>
+(function(){
+'use strict';
+
+/* ---------- Photos: add real images here (key -> data URI) ---------- */
+var PHOTOS = {};
+
+/* ---------- Data ---------- */
+var HOTEL = {
+  phones:['+996 770 775 590','+996 312 621 516'], email:'reservations@bhotel.kg',
+  address:'ул. Баетова, 101, Бишкек',
+  map:'https://www.google.com/maps/place/%D0%93%D0%BE%D1%81%D1%82%D0%B8%D0%BD%D0%B8%D1%86%D0%B0+%22%D0%AD%D0%BD%D0%B5%D1%80%D0%B3%D0%B5%D1%82%D0%B8%D0%BA%22/@42.8830323,74.6047581,18z',
+  reviews:'https://search.google.com/local/reviews?placeid=ChIJR3uwDOa3njgRzCcP7KUXQUw',
+  menu:'https://bhotel.kg/wp-content/uploads/2022/06/A-la-carte-menu-full.pdf',
+  fb:'https://www.facebook.com/bhotelbishkek/', ig:'https://www.instagram.com/bhotelbishkek/',
+  ta:'https://www.tripadvisor.ru/Hotel_Review-g293948-d14990803-Reviews-B_Hotel_Bishkek-Bishkek.html',
+  site:'https://bhotel.kg/'
+};
+var CATS = {
+  standart:{name:'Standart', text:'Светлые номера с рабочей зоной для командировок и коротких поездок.', from:80, hint:'фото 134A6072'},
+  premium:{name:'Premium', text:'Больше места: письменный стол, два кресла, журнальный столик и мини-бар.', from:90, hint:'фото 134A6078'},
+  suite:{name:'Junior Suite', text:'Верхняя категория отеля для тех, кому нужно больше пространства.', from:100, hint:'фото 134A6085'}
+};
+var ROOMS = [
+  {id:'standart-single',cat:'standart',name:'Standart Single',bed:'Односпальная кровать',guests:1,price:80,units:6,
+   lead:'Компактный номер для одного гостя. Рабочий стол, телевизор Smart HD и чайный набор: всё для спокойной остановки в центре города.'},
+  {id:'standart-twin',cat:'standart',name:'Standart Twin',bed:'Две односпальные кровати',guests:2,price:100,units:5,
+   lead:'Два раздельных спальных места для коллег и друзей. Номер с рабочей зоной, сейфом и климат-контролем.'},
+  {id:'standart-king',cat:'standart',name:'Standart King Size',bed:'Кровать king size',guests:2,price:80,units:6,
+   lead:'Просторная кровать king size и тихий номер в здании на спокойной улице рядом с площадью Ала-Тоо.'},
+  {id:'premium-twin',cat:'premium',name:'Premium Twin',bed:'Две односпальные кровати',guests:2,price:110,units:4,
+   lead:'Два отдельных спальных места в номере категории Premium: письменный стол, кресла, журнальный столик и мини-бар.'},
+  {id:'premium-king',cat:'premium',name:'Premium King Size',bed:'Кровать king size',guests:2,price:90,units:5,size:32,
+   lead:'Номер площадью 32 м² в элегантном стиле: кровать, письменный стол, два кресла и журнальный столик, просторные туалет и ванная. Телефон, кабельное телевидение, мини-бар и уголок для чая и кофе.'},
+  {id:'suite-twin',cat:'suite',name:'Junior Suite Twin',bed:'Две односпальные кровати',guests:2,price:120,units:3,
+   lead:'Junior Suite с двумя раздельными кроватями: больше свободного места для работы и отдыха.'},
+  {id:'suite-king',cat:'suite',name:'Junior Suite King Size',bed:'Кровать king size',guests:2,price:100,units:3,
+   lead:'Junior Suite с кроватью king size для тех, кто останавливается надолго и ценит простор.'}
+];
+var ROOM_FEATURES = ['Ортопедические матрасы','Smart HD ТВ 40 и 50 дюймов','Сейф','Система климат-контроля','Меню подушек','Ассортимент немецкого чая Althaus','Бутилированная вода','Балкон','Гигиенический душ','Принадлежности для детей','Махровые халаты','Ванные принадлежности ECO','Зеркало для макияжа с подсветкой и фен','Чайник и набор чая и кофе','Бесшумный мини-бар','Утюг и гладильная доска','Высокоскоростной интернет','Охраняемая парковка'];
+var GALLERY_HINTS = {'premium-king':['134A6072','134A6078','134A6085','134A9377','134A9372']};
+
+/* ---------- Icons ---------- */
+var ICONS = {
+ wifi:'M2 8.8a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0M12 19.5h.01',
+ parking:'M6 20V4h6a4.5 4.5 0 0 1 0 9H6',
+ plane:'M21 3 3 10.5l6.5 2.5L12 20 21 3ZM9.5 13 21 3',
+ dine:'M7 3v8M5 3v5a2 2 0 0 0 4 0V3M7 11v10M17 21V3c-2 1-3 4-3 8h3',
+ bell:'M4 18h16M6 18a6 6 0 0 1 12 0M12 8V6M10 6h4',
+ shirt:'M8 4 3 7l2 4 3-1v10h8V10l3 1 2-4-5-3a4 4 0 0 1-8 0Z',
+ users:'M16 20v-1a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v1M9.5 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7M21 20v-1a4 4 0 0 0-3-3.9M15.5 4.2a3.5 3.5 0 0 1 0 6.6',
+ access:'M12 5a1.6 1.6 0 1 0 0-3.2A1.6 1.6 0 0 0 12 5M12 6.5v6h5l2 6M12 12.5h-1.5M8 11.5a5.5 5.5 0 1 0 7.5 6.5',
+ brief:'M3 8h18v12H3zM9 8V5h6v3M3 13h18',
+ spark:'M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z',
+ leaf:'M5 19c0-9 5-14 15-14 0 10-5 15-14 15M5 19c3-6 6-8 10-10',
+ coffee:'M4 8h13v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5zM17 9h2a2 2 0 0 1 0 4h-2M7 3v2M11 3v2',
+ bed:'M3 18V6M3 14h18v4M21 14v-2a3 3 0 0 0-3-3h-7v5M7 11.5h.01',
+ user:'M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8M4 21a8 8 0 0 1 16 0',
+ pin:'M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21M12 12a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5',
+ phone:'M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2',
+ mail:'M3 6h18v12H3zM3 7l9 7 9-7',
+ clock:'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18M12 7v5l3 2',
+ check:'M5 12.5l4.5 4.5L19 7.5',
+ menu:'M4 7h16M4 12h16M4 17h16',
+ close:'M6 6l12 12M18 6 6 18',
+ home:'M4 11l8-7 8 7v9H4zM10 20v-6h4v6',
+ cal:'M4 6h16v14H4zM4 10h16M8 3v5M16 3v5',
+ more:'M5 12h.01M12 12h.01M19 12h.01',
+ star:'M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.5 2.9 1-6.1L3.2 9.5l6.1-.9z',
+ copy:'M9 9h11v11H9zM5 15V5h10',
+ ext:'M14 4h6v6M20 4l-9 9M18 14v6H4V6h6',
+ lock:'M6 11h12v9H6zM8.5 11V8a3.5 3.5 0 0 1 7 0v3',
+ dot:'M12 12h.01',
+ tick:'M4 12.5l5 5L20 6.5',
+ x:'M6 6l12 12M18 6 6 18'
+};
+function ic(n,s){s=s||20;return '<svg class="i" viewBox="0 0 24 24" width="'+s+'" height="'+s+'" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="'+(ICONS[n]||'')+'"/></svg>';}
+
+/* ---------- Helpers ---------- */
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+function clean(s,max){return String(s==null?'':s).replace(/[\u0000-\u001f\u007f]/g,' ').replace(/\s+/g,' ').trim().slice(0,max);}
+var DAY=864e5;
+function pd(s){var m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(s||'');if(!m)return NaN;var t=Date.UTC(+m[1],+m[2]-1,+m[3]);var d=new Date(t);return (d.getUTCMonth()===+m[2]-1)?t:NaN;}
+function iso(t){return new Date(t).toISOString().slice(0,10);}
+function today(){var d=new Date();return Date.UTC(d.getFullYear(),d.getMonth(),d.getDate());}
+function nightsOf(a,b){return Math.round((pd(b)-pd(a))/DAY);}
+function fmtD(s,withYear){var t=typeof s==='number'?s:pd(s);if(isNaN(t))return '';return new Date(t).toLocaleDateString('ru-RU',{day:'numeric',month:'long',year:withYear?'numeric':undefined,timeZone:'UTC'});}
+function usd(n){return '$'+Number(n||0).toLocaleString('en-US');}
+function pl(n,f){var a=Math.abs(n)%100,b=a%10;if(a>10&&a<20)return f[2];if(b>1&&b<5)return f[1];if(b===1)return f[0];return f[2];}
+function nightsTxt(n){return n+' '+pl(n,['ночь','ночи','ночей']);}
+function roomsTxt(n){return n+' '+pl(n,['номер','номера','номеров']);}
+function guestsTxt(n){return n+' '+pl(n,['гость','гостя','гостей']);}
+function roomById(id){for(var i=0;i<ROOMS.length;i++)if(ROOMS[i].id===id)return ROOMS[i];return null;}
+function opts(a,b,sel,fmt){var h='';for(var i=a;i<=b;i++)h+='<option value="'+i+'"'+(i===+sel?' selected':'')+'>'+(fmt?fmt(i):i)+'</option>';return h;}
+
+/* ---------- Store (localStorage with in-memory fallback) ---------- */
+var KEY='bhotel-demo-v1', mem=null;
+function genCode(items){var al='ABCDEFGHJKMNPQRSTUVWXYZ23456789',c;do{c='BH-';var a=new Uint8Array(6);if(typeof crypto!=='undefined'&&crypto.getRandomValues)crypto.getRandomValues(a);else for(var i=0;i<6;i++)a[i]=Math.floor(Math.random()*256);for(var j=0;j<6;j++)c+=al[a[j]%al.length];}while(items.some(function(x){return x.code===c;}));return c;}
+function seed(){
+  var t=today(),now=Date.now();
+  function calc(id,a,b,n){return roomById(id).price*nightsOf(iso(a),iso(b))*n;}
+  return [
+   {id:'s1',code:'BH-DEMO01',type:'room',status:'new',seed:true,createdAt:now-3*36e5,roomId:'premium-king',checkIn:iso(t+2*DAY),checkOut:iso(t+5*DAY),rooms:1,adults:2,children:0,total:calc('premium-king',t+2*DAY,t+5*DAY,1),name:'Азамат К.',phone:'+996 555 000 101',email:'',note:'Поздний заезд после 22:00',transfer:true},
+   {id:'s2',code:'BH-DEMO02',type:'room',status:'confirmed',seed:true,createdAt:now-26*36e5,roomId:'suite-king',checkIn:iso(t+10*DAY),checkOut:iso(t+12*DAY),rooms:1,adults:2,children:1,total:calc('suite-king',t+10*DAY,t+12*DAY,1),name:'Айжан М.',phone:'+996 555 000 102',email:'aizhan@example.com',note:'',transfer:false},
+   {id:'s3',code:'BH-DEMO03',type:'room',status:'confirmed',seed:true,createdAt:now-50*36e5,roomId:'standart-single',checkIn:iso(t+1*DAY),checkOut:iso(t+2*DAY),rooms:1,adults:1,children:0,total:calc('standart-single',t+1*DAY,t+2*DAY,1),name:'Роман П.',phone:'+996 555 000 103',email:'',note:'',transfer:false},
+   {id:'s4',code:'BH-DEMO04',type:'table',status:'new',seed:true,createdAt:now-5*36e5,date:iso(t+3*DAY),time:'19:30',guests:4,name:'Дина С.',phone:'+996 555 000 104',email:'',note:'Столик у окна'},
+   {id:'s5',code:'BH-DEMO05',type:'event',status:'new',seed:true,createdAt:now-30*36e5,date:iso(t+21*DAY),guests:40,layout:'П-образная',name:'Компания «Пример»',phone:'+996 555 000 105',email:'office@example.com',note:'Однодневный тренинг, нужен кофе-брейк'}
+  ];
+}
+function load(){
+  if(mem)return mem;
+  try{var raw=localStorage.getItem(KEY);if(raw){var o=JSON.parse(raw);if(o&&Array.isArray(o.items)){mem=o;return mem;}}}catch(e){}
+  mem={items:seed()};save();return mem;
+}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(mem));}catch(e){}}
+
+/* ---------- Business logic ---------- */
+function occupied(roomId,a,b,items){
+  var max=0;
+  for(var t=a;t<b;t+=DAY){
+    var n=0;
+    for(var i=0;i<items.length;i++){var it=items[i];
+      if(it.type!=='room'||it.status==='cancelled'||it.roomId!==roomId)continue;
+      if(t>=pd(it.checkIn)&&t<pd(it.checkOut))n+=it.rooms;}
+    if(n>max)max=n;}
+  return max;
+}
+function availability(room,inS,outS,items){
+  var a=pd(inS),b=pd(outS);if(isNaN(a)||isNaN(b)||b<=a)return 0;
+  return Math.max(0,room.units-occupied(room.id,a,b,items||load().items));
+}
+function quote(room,nights,rooms){var sub=room.price*nights*rooms;return {sub:sub,total:sub};}
+function pick(d){return d;}
+function validateBooking(f,items){
+  var errs=[],t=today(),a=pd(f.checkIn),b=pd(f.checkOut);
+  function e(field,msg){errs.push({field:field,msg:msg});}
+  if(isNaN(a))e('checkIn','Укажите дату заезда.');
+  else if(a<t)e('checkIn','Дата заезда уже прошла. Выберите сегодняшнюю или более позднюю дату.');
+  if(isNaN(b))e('checkOut','Укажите дату выезда.');
+  else if(!isNaN(a)&&b<=a)e('checkOut','Выезд должен быть позже заезда минимум на одну ночь.');
+  else if(!isNaN(a)&&(b-a)/DAY>30)e('checkOut','Максимальный срок демо-брони: 30 ночей.');
+  if(!(f.adults>=1&&f.adults<=8))e('adults','Укажите число взрослых от 1 до 8.');
+  if(!(f.children>=0&&f.children<=6))e('children','Число детей: от 0 до 6.');
+  if(!(f.rooms>=1&&f.rooms<=5))e('rooms','Можно выбрать от 1 до 5 номеров.');
+  var room=roomById(f.roomId);
+  if(!room)e('room','Выберите номер.');
+  else{
+    if(f.adults+f.children>room.guests*f.rooms)e('room','Выбранный номер рассчитан на '+guestsTxt(room.guests)+'. Добавьте номер или выберите другой.');
+    if(!isNaN(a)&&!isNaN(b)&&b>a&&availability(room,f.checkIn,f.checkOut,items)<f.rooms)e('room','На эти даты свободно меньше номеров, чем нужно. Измените даты или выберите другой номер.');
+  }
+  var nm=clean(f.name,80);if(nm.length<2)e('name','Введите имя и фамилию.');
+  var digits=String(f.phone||'').replace(/\D/g,'');
+  if(!/^\+?[\d\s()\-]{7,22}$/.test(String(f.phone||'').trim())||digits.length<7)e('phone','Введите телефон, например +996 555 123 456.');
+  if(f.email&&!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(f.email.trim()))e('email','Проверьте адрес почты или оставьте поле пустым.');
+  if(!f.consent)e('consent','Подтвердите, что это демонстрационная бронь.');
+  return errs;
+}
+function validateRequest(f,kind){
+  var errs=[];function e(field,msg){errs.push({field:field,msg:msg});}
+  if(kind!=='message'){var d=pd(f.date);if(isNaN(d)||d<today())e('date','Укажите сегодняшнюю или будущую дату.');
+    if(!(f.guests>=1&&f.guests<=300))e('guests','Укажите число гостей.');}
+  if(clean(f.name,80).length<2)e('name','Введите имя.');
+  var digits=String(f.phone||'').replace(/\D/g,'');
+  if(!/^\+?[\d\s()\-]{7,22}$/.test(String(f.phone||'').trim())||digits.length<7)e('phone','Введите телефон, например +996 555 123 456.');
+  if(f.email&&!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(f.email.trim()))e('email','Проверьте адрес почты или оставьте поле пустым.');
+  if(kind==='message'&&clean(f.note,1000).length<5)e('note','Напишите сообщение.');
+  if(!f.consent)e('consent','Подтвердите, что это демонстрация.');
+  return errs;
+}
+
+/* ---------- State & routing ---------- */
+var state={filter:'all',draft:{in:'',out:'',adults:2,children:0,rooms:1,roomId:null},last:null,admin:false,af:'all',at:'all',aq:'',confirmDel:null,confirmReset:false,lastSubmit:0,galI:0};
+function initDraft(){if(!state.draft.in||pd(state.draft.in)<today()){var t=today();state.draft.in=iso(t+DAY);state.draft.out=iso(t+3*DAY);}}
+function route(){var h=(location.hash||'').replace(/^#/,'')||'home';var m=/^room-(.+)$/.exec(h);if(m)return {name:'room',id:m[1]};return {name:h};}
+var NAV=[['rooms','Номера'],['restaurant','Ресторан'],['conference','Конференц-залы'],['services','Услуги'],['contacts','Контакты']];
+var KNOWN={home:1,rooms:1,restaurant:1,conference:1,services:1,contacts:1,book:1,confirmation:1,admin:1};
+
+/* ---------- Components ---------- */
+function ph(key,alt,o){o=o||{};var src=PHOTOS[key];
+  if(src)return '<img class="pic '+(o.cls||'')+'" src="'+src+'" alt="'+esc(alt)+'" loading="lazy" decoding="async">';
+  return '<div class="ph '+(o.tone||'')+' '+(o.cls||'')+'" role="img" aria-label="'+esc(alt)+'" style="--gx:'+(o.gx||72)+'%;--gy:'+(o.gy||22)+'%"><small>'+esc(o.hint||'')+'</small></div>';}
+function logo(){return '<a class="logo" href="#home" aria-label="B Hotel Bishkek, на главную"><span class="mono" aria-hidden="true">B</span><span class="wm"><b>B Hotel</b><i>Bishkek</i></span></a>';}
+function active(r,n){return (r.name===n||(n==='rooms'&&r.name==='room'))?' aria-current="page"':'';}
+function header(r){
+  var nav=NAV.map(function(x){return '<a href="#'+x[0]+'"'+active(r,x[0])+'>'+x[1]+'</a>';}).join('');
+  return '<div class="util"><div class="wrap"><span>'+ic('pin',16)+esc(HOTEL.address)+'</span><span>'+ic('phone',16)+'<a href="tel:+996770775590">'+HOTEL.phones[0]+'</a></span><span>'+ic('mail',16)+esc(HOTEL.email)+'</span></div></div>'+
+  '<header class="hdr"><div class="wrap">'+logo()+'<nav class="nav" aria-label="Основная навигация">'+nav+'</nav><div class="right"><a class="btn" href="#book">Забронировать</a></div>'+
+  '<button class="menu-btn" data-act="menu" aria-label="Открыть меню" aria-expanded="false">'+ic('menu',24)+'</button></div></header>';
+}
+function sheet(r){
+  var links=[['home','Главная']].concat(NAV).concat([['book','Забронировать']]);
+  return '<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="Меню" hidden><div class="top">'+logo()+'<button class="menu-btn" data-act="menu" aria-label="Закрыть меню">'+ic('close',24)+'</button></div>'+
+  '<nav aria-label="Меню">'+links.map(function(x){return '<a href="#'+x[0]+'"'+active(r,x[0])+'>'+x[1]+'</a>';}).join('')+'</nav>'+
+  '<div class="meta"><span>'+esc(HOTEL.address)+'</span><a href="tel:+996770775590">'+HOTEL.phones[0]+'</a><a href="tel:+996312621516">'+HOTEL.phones[1]+'</a><span>'+esc(HOTEL.email)+'</span></div></div>';
+}
+function tabbar(r){
+  function t(h,n,i,l){return '<a href="#'+h+'"'+active(r,n)+'>'+ic(i,22)+'<span>'+l+'</span></a>';}
+  return '<nav class="tabbar" aria-label="Быстрая навигация">'+t('home','home','home','Главная')+t('rooms','rooms','bed','Номера')+
+  '<a class="go" href="#book" aria-label="Забронировать"><span class="pill-go">'+ic('cal',24)+'</span><small>Бронь</small></a>'+t('restaurant','restaurant','dine','Ресторан')+
+  '<button data-act="menu" aria-label="Ещё">'+ic('more',22)+'<span>Ещё</span></button></nav>';
+}
+function footer(){
+  return '<footer class="ft band-d"><div class="wrap"><div class="cols"><div class="stack-s">'+logo()+'<p class="mute" style="font-size:.95rem">Четыре звезды в нескольких шагах от площади Ала-Тоо. Итальянская кухня, номера для отдыха и деловых поездок, конференц-зал.</p></div>'+
+  '<div><h4>Отель</h4><ul>'+NAV.map(function(x){return '<li><a href="#'+x[0]+'">'+x[1]+'</a></li>';}).join('')+'<li><a href="#book">Забронировать</a></li></ul></div>'+
+  '<div><h4>Связаться</h4><ul><li><a href="tel:+996770775590">'+HOTEL.phones[0]+'</a></li><li><a href="tel:+996312621516">'+HOTEL.phones[1]+'</a></li><li>'+esc(HOTEL.email)+'</li><li>'+esc(HOTEL.address)+'</li></ul></div>'+
+  '<div><h4>Мы в сети</h4><ul><li><a href="'+HOTEL.ig+'" target="_blank" rel="noopener">Instagram</a></li><li><a href="'+HOTEL.fb+'" target="_blank" rel="noopener">Facebook</a></li><li><a href="'+HOTEL.ta+'" target="_blank" rel="noopener">TripAdvisor</a></li><li><a href="'+HOTEL.site+'" target="_blank" rel="noopener">Оригинальный сайт bhotel.kg</a></li></ul></div></div>'+
+  '<div class="legal"><span>Демонстрационный проект. Брони и заявки не отправляются в отель, платежи не подключены.</span><a href="#admin">Демо-панель администратора</a></div></div></footer>';
+}
+
+/* ---------- Views ---------- */
+function quickBar(){
+  initDraft();var d=state.draft;
+  return '<section class="qb" aria-label="Проверка наличия"><div class="wrap"><form id="qbar" data-datepair novalidate>'+
+   '<label class="fl"><span>Заезд</span><input type="date" name="in" data-d="in" min="'+iso(today())+'" value="'+d.in+'" required></label>'+
+   '<label class="fl"><span>Выезд</span><input type="date" name="out" data-d="out" min="'+iso(pd(d.in)+DAY)+'" value="'+d.out+'" required></label>'+
+   '<label class="fl"><span>Номера</span><select name="rooms">'+opts(1,5,d.rooms)+'</select></label>'+
+   '<label class="fl"><span>Взрослые</span><select name="adults">'+opts(1,8,d.adults)+'</select></label>'+
+   '<label class="fl"><span>Дети</span><select name="children">'+opts(0,6,d.children)+'</select></label>'+
+   '<button class="btn" type="submit">Проверить наличие</button></form></div></section>';
+}
+function viewHome(){
+  var cats=Object.keys(CATS).map(function(k,i){var c=CATS[k];
+    return '<a class="card" href="#rooms" data-act="setfilter" data-v="'+k+'" aria-label="'+esc(c.name)+': смотреть номера, от '+usd(c.from)+'">'+
+    '<div class="frame ar-43">'+ph('cat-'+k,'Номер категории '+c.name,{tone:i===1?'light':'',gx:30+i*18,hint:c.hint})+'</div>'+
+    '<h3>'+esc(c.name)+'</h3><div class="meta"><span>'+ic('bed',18)+'От '+usd(c.from)+' за ночь</span><span>'+ic('wifi',18)+'Wi-Fi</span></div><p style="margin-inline:auto;font-size:.92rem;padding-inline:10px">'+esc(c.text)+'</p><span class="more">Смотреть номера</span></a>';}).join('');
+  var svc=[['plane','Трансфер','Встреча и проводы в аэропорту'],['parking','Парковка','Бесплатная охраняемая парковка'],['bell','Обслуживание в номере','Круглосуточно, доставка еды и напитков'],['shirt','Прачечная','Стирка и химчистка'],['brief','Бизнес-центр','Копирование, почта, переводчик'],['access','Доступная среда','Проходы и номера для гостей с ограниченными возможностями']].map(function(s){
+    return '<div>'+ic(s[0],28)+'<b>'+s[1]+'</b><p>'+s[2]+'</p></div>';}).join('');
+  return '<section class="hero"><div style="position:absolute;inset:0;z-index:-2">'+ph('hero','Лобби B Hotel Bishkek',{gx:68,gy:30,hint:'фото 134A9473'})+'</div><div class="wrap"><div class="hero-in">'+
+    '<span class="stars" aria-label="Четыре звезды">'+ic('star',18)+ic('star',18)+ic('star',18)+ic('star',18)+'</span>'+
+    '<h1>Ваш дом в самом сердце Бишкека</h1>'+
+    '<p>Четыре звезды в нескольких шагах от площади Ала-Тоо. Итальянская кухня Buono, просторные номера и тихая улица в центре города.</p>'+
+    '<div class="row"><a class="btn" href="#book">Забронировать номер</a><a class="btn ghost" href="#rooms" style="color:#efe8dc">Смотреть номера</a></div></div></div></section>'+
+  quickBar()+
+  '<section class="sec band-l"><div class="wrap split"><div class="collage"><div class="frame ar-45 a">'+ph('lobby','Лобби отеля',{tone:'light',gx:40,gy:25,hint:'фото IMG1'})+'</div><div class="frame ar-43 b">'+ph('intro-room','Номер B Hotel',{gx:60,gy:30,hint:'фото 134A9478'})+'</div></div>'+
+    '<div class="stack"><span class="eyebrow">Об отеле</span><h2>Спокойный комфорт рядом с главной площадью города</h2>'+
+    '<p>Светлое лобби, где можно обсудить дела в неформальной обстановке или выпить чашку свежемолотого итальянского кофе. Вокруг достопримечательности Бишкека, а на улице Баетова тихо.</p>'+
+    '<ul class="checks"><li>'+ic('check')+'Бесплатные Wi-Fi и парковка</li><li>'+ic('check')+'Трансфер от и до аэропорта</li><li>'+ic('check')+'Номера для некурящих</li><li>'+ic('check')+'Ресторан, бар и доставка в номер</li></ul>'+
+    '<div><a class="btn ghost" href="#services">Об отеле и услугах</a></div></div></div></section>'+
+  '<section class="sec band-d"><div class="wrap"><div class="stack" style="max-width:640px"><span class="eyebrow">Номера</span><h2>Выберите номер под вашу поездку</h2><p class="mute">Три категории, от Standart до Junior Suite. Во всех номерах Smart TV, сейф, климат-контроль и чайный набор.</p></div><div class="cats">'+cats+'</div></div></section>'+
+  '<section class="sec band-l"><div class="wrap split rev"><div class="frame ar-45">'+ph('restaurant','Ресторан Buono',{tone:'light',gx:55,gy:25,hint:'фото 134A9452'})+'</div><div class="stack"><span class="eyebrow">Ресторан Buono</span><h2>Итальянская кухня от шефа из самого сердца Италии</h2>'+
+    '<p>Завтрак шведским столом, обеды для деловых встреч и ужины из свежих сезонных продуктов, в том числе привезённых из Европы.</p>'+
+    '<div class="kv"><div><span>Завтрак</span><b>07:30–10:30</b></div><div><span>Обед</span><b>12:00–18:00</b></div><div><span>Ужин</span><b>18:00–23:00</b></div></div>'+
+    '<div><a class="btn" href="#restaurant">Меню и столик</a></div></div></div></section>'+
+  '<section class="sec band-d2"><div class="wrap split"><div class="stack"><span class="eyebrow">Конференц-зал</span><h2>Встречи и мероприятия в центре делового Бишкека</h2><p>Зал «Gallery» на третьем этаже, охрана и конфиденциальность, доступ к залу можно ограничить по запросу.</p>'+
+    '<div class="facts"><div><b>90 м²</b><span>площадь</span></div><div><b>35</b><span>П-образно</span></div><div><b>70</b><span>театр</span></div></div><div><a class="btn ghost" href="#conference">Запросить зал</a></div></div>'+
+    '<div class="frame ar-43">'+ph('conference','Конференц-зал Gallery',{gx:50,gy:30,hint:'фото sl2980-1'})+'</div></div></section>'+
+  '<section class="sec band-l"><div class="wrap"><div class="stack" style="max-width:640px;margin-bottom:34px"><span class="eyebrow">Услуги</span><h2>Всё необходимое для поездки</h2></div><div class="svc">'+svc+'</div><div style="margin-top:28px"><a class="btn ghost" href="#services">Все услуги</a></div></div></section>'+
+  '<section class="sec band-d"><div class="wrap"><div class="rate"><b>4,6</b><span class="mute">средняя оценка гостей в Google</span></div><div class="qs">'+
+    '<div class="quote"><q>Уютный отель и вкусное кафе.</q><span>Akylai Chynaly, Google</span></div>'+
+    '<div class="quote"><q>Очень большие и просторные номера.</q><span>Sergei Gotin, Google</span></div>'+
+    '<div class="quote"><q>Классное и тихое место, самое то для конференций.</q><span>Юрий Никитенко, Google</span></div></div>'+
+    '<div style="margin-top:30px"><a class="btn ghost" href="'+HOTEL.reviews+'" target="_blank" rel="noopener">Все отзывы на Google '+ic('ext',16)+'</a></div></div></section>';
+}
+
+function roomCard(r,d){
+  var av=d&&d.in&&d.out?availability(r,d.in,d.out):null,n=d&&d.in&&d.out?nightsOf(d.in,d.out):0;
+  var line='';
+  if(av!==null&&n>0){line=av>0?'<span class="avail ok">Свободно номеров: '+av+'. За '+nightsTxt(n)+': '+usd(r.price*n)+'</span>':'<span class="avail no">На эти даты номеров нет</span>';}
+  return '<article class="rc"><a class="frame ar-43" href="#room-'+r.id+'" tabindex="-1" aria-hidden="true">'+ph('room-'+r.id+'-0',r.name,{tone:r.cat==='premium'?'light':'',gx:35+(r.price%5)*10,hint:(GALLERY_HINTS[r.id]?'фото '+GALLERY_HINTS[r.id][0]:CATS[r.cat].hint)})+'</a>'+
+   '<div class="body"><h3>'+esc(r.name)+'</h3><div class="tags"><span>'+ic('bed',16)+esc(r.bed)+'</span><span>'+ic('user',16)+'До '+guestsTxt(r.guests)+'</span>'+(r.size?'<span>'+r.size+' м²</span>':'')+'</div>'+
+   '<p class="mute" style="font-size:.93rem">'+esc(r.lead.split('. ')[0].replace(/\.$/,''))+'.</p>'+line+
+   '<div class="price"><span class="mute">от</span><b>'+usd(r.price)+'</b><span class="mute">за ночь</span></div>'+
+   '<div class="acts"><a class="btn ghost sm" href="#room-'+r.id+'">Подробнее</a><a class="btn sm" href="#book" data-act="bookroom" data-id="'+r.id+'">Забронировать</a></div></div></article>';
+}
+function roomsListHTML(){
+  var d=state.draft,list=ROOMS.filter(function(r){return state.filter==='all'||r.cat===state.filter;});
+  return list.map(function(r){return roomCard(r,d);}).join('');
+}
+function viewRooms(){
+  initDraft();var d=state.draft;
+  var chips=[['all','Все']].concat(Object.keys(CATS).map(function(k){return [k,CATS[k].name];})).map(function(c){return '<button class="chip" data-act="chip" data-v="'+c[0]+'" aria-pressed="'+(state.filter===c[0])+'">'+c[1]+'</button>';}).join('');
+  return '<section class="ph-head band-d"><div class="wrap"><div class="stack"><nav class="crumbs" aria-label="Путь"><a href="#home">Главная</a><span>Номера</span></nav><h1>Номера</h1><p class="mute">Семь типов номеров в трёх категориях. Укажите даты, и мы покажем наличие и стоимость проживания.</p></div></div></section>'+
+  '<section class="sec band-d" style="padding-top:0"><div class="wrap"><form class="chk-bar" id="roomchk" data-datepair novalidate><label class="fl"><span>Заезд</span><input type="date" name="in" data-d="in" min="'+iso(today())+'" value="'+d.in+'"></label><label class="fl"><span>Выезд</span><input type="date" name="out" data-d="out" min="'+iso(pd(d.in)+DAY)+'" value="'+d.out+'"></label><p class="mute">Цены указаны за номер в сутки, в долларах США.</p></form>'+
+  '<div class="chips" role="group" aria-label="Категория" style="margin-top:28px">'+chips+'</div><div class="rgrid" id="rlist">'+roomsListHTML()+'</div></div></section>';
+}
+
+function viewRoom(id){
+  var r=roomById(id);if(!r)return view404();
+  initDraft();var d=state.draft;
+  var hints=GALLERY_HINTS[r.id]||[],n=hints.length||3,tones=['','light','','light',''];
+  var mains='',thumbs='';
+  for(var i=0;i<n;i++){
+    mains+='<div class="frame ar-32 gm" data-i="'+i+'"'+(i?' hidden':'')+'>'+ph('room-'+r.id+'-'+i,r.name+', фото '+(i+1),{tone:tones[i%5],gx:30+i*14,gy:20+i*6,hint:hints[i]?'фото '+hints[i]:'Фото '+(i+1)})+'</div>';
+    thumbs+='<button data-act="gal" data-i="'+i+'" aria-label="Фото '+(i+1)+'" aria-pressed="'+(i===0)+'"><div style="position:absolute;inset:0">'+ph('room-'+r.id+'-'+i,'',{tone:tones[i%5],gx:30+i*14,gy:20+i*6})+'</div></button>';
+  }
+  var others=ROOMS.filter(function(x){return x.id!==r.id;}).slice(0,3).map(function(x){return roomCard(x,null);}).join('');
+  var feats=ROOM_FEATURES.map(function(f){return '<li>'+ic('check',18)+'<span>'+esc(f)+'</span></li>';}).join('');
+  return '<section class="ph-head band-d"><div class="wrap"><div class="stack"><nav class="crumbs" aria-label="Путь"><a href="#home">Главная</a><a href="#rooms">Номера</a><span>'+esc(r.name)+'</span></nav><h1>'+esc(r.name)+'</h1><p class="mute">'+esc(CATS[r.cat].name)+'. '+esc(r.bed)+', до '+guestsTxt(r.guests)+(r.size?', '+r.size+' м²':'')+'.</p></div></div></section>'+
+  '<section class="sec band-l" style="padding-top:clamp(32px,5vw,56px)"><div class="wrap det"><div class="stack" style="gap:36px;min-width:0">'+
+   '<div class="gal"><div class="main">'+mains+'</div><div class="thumbs">'+thumbs+'</div></div>'+
+   '<div class="stack-s"><h2 style="font-size:clamp(1.5rem,2.6vw,2rem)">О номере</h2><p>'+esc(r.lead)+'</p></div>'+
+   '<div class="stack-s"><h3>Основное</h3><div class="kv"><div><span>Вместимость</span><b>до '+guestsTxt(r.guests)+'</b></div><div><span>Кровать</span><b>'+esc(r.bed)+'</b></div>'+(r.size?'<div><span>Площадь</span><b>'+r.size+' м²</b></div>':'')+'<div><span>Заезд</span><b>с 14:00</b></div><div><span>Выезд</span><b>до 12:00</b></div><div><span>Курение</span><b>номера для некурящих</b></div></div></div>'+
+   '<div class="stack-s"><h3>В номере</h3><ul class="cols2">'+feats+'</ul></div></div>'+
+   '<aside><form class="panel sticky band-d2" id="roompanel" data-datepair data-room="'+r.id+'" novalidate><div><span class="mute">от</span> <span style="font:500 1.9rem/1 var(--serif);color:var(--brass-hi)">'+usd(r.price)+'</span> <span class="mute">за ночь</span></div>'+
+   '<div class="grid2"><label class="fl"><span>Заезд</span><input type="date" name="in" data-d="in" min="'+iso(today())+'" value="'+d.in+'"></label><label class="fl"><span>Выезд</span><input type="date" name="out" data-d="out" min="'+iso(pd(d.in)+DAY)+'" value="'+d.out+'"></label></div>'+
+   '<div class="grid3"><label class="fl"><span>Номера</span><select name="rooms">'+opts(1,5,d.rooms)+'</select></label><label class="fl"><span>Взрослые</span><select name="adults">'+opts(1,8,Math.min(d.adults,r.guests*2))+'</select></label><label class="fl"><span>Дети</span><select name="children">'+opts(0,6,d.children)+'</select></label></div>'+
+   '<div id="rp-out" aria-live="polite"></div><button class="btn" type="submit">Перейти к бронированию</button></form></aside></div></section>'+
+  '<section class="sec band-d"><div class="wrap"><h2 style="margin-bottom:8px">Другие номера</h2><div class="rgrid">'+others+'</div></div></section>';
+}
+function panelOut(){
+  var f=document.getElementById('roompanel');if(!f)return;
+  var r=roomById(f.dataset.room),o=document.getElementById('rp-out');if(!r||!o)return;
+  var v=readForm(f),a=pd(v.in),b=pd(v.out);
+  if(isNaN(a)||isNaN(b)||b<=a){o.innerHTML='<p class="mute" style="font-size:.9rem">Выберите даты: выезд должен быть позже заезда.</p>';return;}
+  var n=nightsOf(v.in,v.out),av=availability(r,v.in,v.out),q=quote(r,n,v.rooms);
+  var cap=(+v.adults)+(+v.children)<=r.guests*v.rooms;
+  var msg=av<v.rooms?'<span class="avail no">На эти даты нужного числа номеров нет.</span>':(!cap?'<span class="avail no">Номер рассчитан на '+guestsTxt(r.guests)+'. Добавьте номер.</span>':'<span class="avail ok">Свободно: '+av+'</span>');
+  o.innerHTML='<div class="kv"><div><span>'+usd(r.price)+' × '+nightsTxt(n)+' × '+roomsTxt(+v.rooms)+'</span><b>'+usd(q.total)+'</b></div></div><div class="tot" style="margin-top:12px"><span class="mute">Итого</span><b>'+usd(q.total)+'</b></div>'+msg;
+}
+
+function view404(){return '<section class="sec band-d"><div class="wrap stack"><h1>Страница не найдена</h1><p class="mute">Такой страницы нет. Вернитесь на главную или перейдите к номерам.</p><div><a class="btn" href="#home">На главную</a> <a class="btn ghost" href="#rooms">Номера</a></div></div></section>';}
+
+function reqForm(kind,o){
+  var id=kind+'form',isMsg=kind==='message',t=today();
+  var times='';for(var h=12;h<=22;h++){['00','30'].forEach(function(m){if(h===22&&m==='30')return;var v=(h<10?'0':'')+h+':'+m;times+='<option value="'+v+'"'+(v==='19:00'?' selected':'')+'>'+v+'</option>';});}
+  var extra='';
+  if(kind==='table')extra='<div class="grid3"><label class="fl"><span>Дата</span><input type="date" id="'+id+'-date" name="date" min="'+iso(t)+'" value="'+iso(t+DAY)+'"></label><label class="fl"><span>Время</span><select name="time" id="tableform-time">'+times+'</select></label><label class="fl full"><span>Гостей</span><select name="guests" id="tableform-guests">'+opts(1,12,2)+'</select></label></div>';
+  if(kind==='event')extra='<div class="grid3"><label class="fl"><span>Дата</span><input type="date" id="'+id+'-date" name="date" min="'+iso(t)+'" value="'+iso(t+14*DAY)+'"></label><label class="fl"><span>Гостей</span><input type="number" id="eventform-guests" name="guests" min="1" max="300" value="30" inputmode="numeric"></label><label class="fl full"><span>Рассадка</span><select name="layout"><option>П-образная</option><option>Театр</option><option>Банкет</option></select></label></div>';
+  return '<form id="'+id+'" class="stack" novalidate data-kind="'+kind+'"><div id="'+id+'-err" role="alert"></div>'+extra+
+   '<div class="grid2"><label class="fl"><span>Имя</span><input name="name" id="'+id+'-name" autocomplete="name" maxlength="80"></label><label class="fl"><span>Телефон</span><input name="phone" id="'+id+'-phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="22" placeholder="+996 555 123 456"></label></div>'+
+   '<label class="fl"><span>Почта (по желанию)</span><input name="email" id="'+id+'-email" type="email" autocomplete="email" maxlength="120"></label>'+
+   '<label class="fl"><span>'+(isMsg?'Сообщение':'Комментарий (по желанию)')+'</span><textarea name="note" id="'+id+'-note" maxlength="1000"></textarea></label>'+
+   '<div class="hp" aria-hidden="true"><label>Сайт<input name="website" tabindex="-1" autocomplete="off"></label></div>'+
+   '<label class="chk"><input type="checkbox" name="consent" id="'+id+'-consent"><span>Понимаю, что это демонстрация: заявка сохранится только в этом браузере и не будет отправлена в отель.</span></label>'+
+   '<div><button class="btn" type="submit">'+(kind==='table'?'Забронировать столик':kind==='event'?'Отправить запрос':'Отправить сообщение')+'</button></div></form>';
+}
+
+function viewRestaurant(){
+  return '<section class="ph-head band-d"><div class="wrap split"><div class="stack"><nav class="crumbs" aria-label="Путь"><a href="#home">Главная</a><span>Ресторан Buono</span></nav><h1>Ресторан Buono</h1><p>Кулинарное сердце отеля. Шеф-повар Роберто Риччи, победитель международных кулинарных конкурсов, приехал в Бишкек из самого центра Италии.</p></div><div class="frame ar-43">'+ph('restaurant-hero','Зал ресторана Buono',{gx:50,gy:28,hint:'фото 134A9452'})+'</div></div></section>'+
+  '<section class="sec band-l"><div class="wrap split"><div class="stack"><h2>Итальянская кухня из свежих сезонных продуктов</h2><p>Утром вас ждёт шведский стол или блюда из меню. Днём здесь удобно провести деловые переговоры за обедом, а вечером попробовать блюда шефа. Часть продуктов привозят из Европы.</p><p>Классический итальянский интерьер и внимательное обслуживание, как в остальном отеле.</p>'+
+   '<div class="kv"><div><span>Завтрак</span><b>07:30–10:30</b></div><div><span>Обед</span><b>12:00–18:00</b></div><div><span>Ужин</span><b>18:00–23:00</b></div></div><p class="mute" style="font-size:.9rem">Часы работы могут меняться. Уточняйте у администратора.</p><div><a class="btn ghost" href="'+HOTEL.menu+'" target="_blank" rel="noopener">Меню на сайте отеля (PDF) '+ic('ext',16)+'</a></div></div>'+
+   '<div class="grid2"><div class="frame ar-45">'+ph('restaurant-1','Блюда ресторана Buono',{tone:'light',gx:40,hint:'фото 134A9471'})+'</div><div class="frame ar-45" style="margin-top:36px">'+ph('restaurant-2','Шведский стол',{gx:60,hint:'фото 134A6218'})+'</div></div></div></section>'+
+  '<section class="sec band-d" id="table"><div class="wrap split"><div class="stack"><span class="eyebrow">Столик</span><h2>Забронировать столик</h2><p class="mute">Выберите дату, время и число гостей. В демо заявка попадёт в панель администратора.</p></div>'+reqForm('table')+'</div></section>';
+}
+function viewConference(){
+  return '<section class="ph-head band-d"><div class="wrap split"><div class="stack"><nav class="crumbs" aria-label="Путь"><a href="#home">Главная</a><span>Конференц-залы</span></nav><h1>Конференц-залы</h1><p>Расположение в деловом центре Бишкека, команда по организации мероприятий и традиционное кыргызское гостеприимство. Конференц-пространство отеля занимает более 200 м².</p></div><div class="frame ar-43">'+ph('conference-hero','Конференц-зал Gallery',{gx:50,gy:30,hint:'фото sl2980-1'})+'</div></div></section>'+
+  '<section class="sec band-l"><div class="wrap split"><div class="stack"><h2>Зал «Gallery»</h2><p>Высокий уровень безопасности и конфиденциальности, доступ к залу можно ограничить по запросу. Для кофе-брейков и банкетов работает ресторан Buono, для работы есть бизнес-центр и услуги переводчика.</p>'+
+   '<div class="facts"><div><b>90 м²</b><span>площадь</span></div><div><b>35</b><span>П-образная рассадка</span></div><div><b>70</b><span>театр</span></div></div><div class="kv"><div><span>Этаж</span><b>3</b></div><div><span>Доступ</span><b>пандус в зал</b></div></div></div>'+
+   '<div class="frame ar-43">'+ph('conference-2','Зал Gallery',{tone:'light',gx:40,hint:'фото'})+'</div></div></section>'+
+  '<section class="sec band-d" id="request"><div class="wrap split"><div class="stack"><span class="eyebrow">Запрос</span><h2>Запросить дату и стоимость</h2><p class="mute">Опишите мероприятие. В демо стоимость не рассчитывается: её сообщает отдел бронирования.</p></div>'+reqForm('event')+'</div></section>';
+}
+function viewServices(){
+  var rows=[['plane','Встреча в аэропорту','Индивидуальная встреча и проводы'],['parking','Парковка','Бесплатная охраняемая парковка'],['bell','Обслуживание в номере','Круглосуточно'],['dine','Ресторан и бар','Ресторан Buono, доставка еды и напитков в номер'],['shirt','Прачечная и химчистка','Стирка и глажка'],['spark','Чистка обуви','Мастер ручной чистки обуви'],['users','Многоязычный персонал','Говорим по-русски и по-английски'],['wifi','Wi-Fi','Бесплатный высокоскоростной интернет'],['coffee','Чай и кофе в номере','Чайник и комплиментарный набор чая и кофе']];
+  var biz=['Копировальные услуги','Доставка и забор корреспонденции и посылок','Упаковка посылок и отправка по почте','Бизнес-центр','Услуги переводчика'];
+  var acc=['Главный вход','Номера с дверными проёмами шириной 78 см','Проход в гостевые номера','Рестораны и терраса','Конференц-зал','Бизнес-центр','Проход к стойке регистрации'];
+  return '<section class="ph-head band-d"><div class="wrap"><div class="stack"><nav class="crumbs" aria-label="Путь"><a href="#home">Главная</a><span>Услуги</span></nav><h1>Услуги отеля</h1><p class="mute">Четырёхзвёздочный отель в нескольких шагах от площади Ала-Тоо. Все номера и общественные зоны для некурящих.</p></div></div></section>'+
+  '<section class="sec band-l"><div class="wrap"><div class="svc">'+rows.map(function(s){return '<div>'+ic(s[0],28)+'<b>'+s[1]+'</b><p>'+s[2]+'</p></div>';}).join('')+'</div></div></section>'+
+  '<section class="sec band-d"><div class="wrap split" style="align-items:start"><div class="stack"><h2>Бизнес-услуги</h2><ul class="checks">'+biz.map(function(x){return '<li>'+ic('check')+x+'</li>';}).join('')+'</ul></div><div class="stack"><h2>Доступная среда</h2><ul class="checks">'+acc.map(function(x){return '<li>'+ic('check')+x+'</li>';}).join('')+'</ul></div></div></section>'+
+  '<section class="sec band-l"><div class="wrap split" style="align-items:start"><div class="stack"><h2>Правила проживания</h2><div class="kv"><div><span>Заезд</span><b>с 14:00</b></div><div><span>Выезд</span><b>до 12:00</b></div><div><span>Отмена брони</span><b>за 48 часов до заезда</b></div></div><p class="mute" style="font-size:.93rem">Заселение возможно только по гражданскому паспорту. По заграничному паспорту зарегистрировать гостя нельзя.</p></div>'+
+   '<div class="frame ar-43">'+ph('services','Лобби и стойка регистрации',{tone:'light',gx:50,hint:'фото'})+'</div></div></section>'+
+  '<section class="sec band-d2" id="green"><div class="wrap"><div class="stack" style="max-width:720px;margin-bottom:34px"><span class="eyebrow">Think Green</span><h2>Политика устойчивого развития</h2><p>«Мы не просто следуем трендам устойчивости, мы делаем это потому, что верим в его важность и несем ответственность за наши действия.» Салтанат Мидин, директор.</p></div>'+
+   '<div class="svc"><div>'+ic('leaf',28)+'<b>Сократить</b><p>Потребление электричества и воды, все виды отходов, углеродный след.</p></div><div>'+ic('users',28)+'<b>Вдохновить</b><p>Партнёров, гостей и подписчиков объединять усилия ради более чистой планеты.</p></div><div>'+ic('spark',28)+'<b>Беречь</b><p>Природу, сотрудников, гостей, местные инициативы, людей с ограничениями и животных.</p></div></div></div></section>';
+}
+function copyRow(label,val,icon,href){
+  return '<div class="stack-s"><span class="mute" style="font-size:.88rem">'+label+'</span><div class="crow"><span style="font:500 1.12rem/1.4 var(--serif);word-break:break-word" data-copy-src>'+(href?'<a href="'+href+'">'+esc(val)+'</a>':esc(val))+'</span><button type="button" class="cbtn" data-act="copy" data-v="'+esc(val)+'">'+ic('copy',16)+'Копировать</button></div></div>';
+}
+function viewContacts(){
+  return '<section class="ph-head band-d"><div class="wrap"><div class="stack"><nav class="crumbs" aria-label="Путь"><a href="#home">Главная</a><span>Контакты</span></nav><h1>Контакты</h1><p class="mute">Ресепшен работает круглосуточно. Для бронирования номеров используйте форму на сайте или свяжитесь с нами.</p></div></div></section>'+
+  '<section class="sec band-l"><div class="wrap split" style="align-items:start"><div class="stack" style="gap:28px">'+
+   copyRow('Адрес',HOTEL.address)+copyRow('Телефон',HOTEL.phones[0],'phone','tel:+996770775590')+copyRow('Телефон',HOTEL.phones[1],'phone','tel:+996312621516')+copyRow('Почта',HOTEL.email,'mail','mailto:'+HOTEL.email)+
+   '<div class="crow"><a class="btn ghost" href="'+HOTEL.map+'" target="_blank" rel="noopener">Открыть на карте '+ic('ext',16)+'</a><a class="btn ghost" href="'+HOTEL.ig+'" target="_blank" rel="noopener">Instagram</a><a class="btn ghost" href="'+HOTEL.fb+'" target="_blank" rel="noopener">Facebook</a></div>'+
+   '<p class="mute" style="font-size:.9rem">Заезд с 14:00, выезд до 12:00.</p></div>'+
+   '<div class="stack"><h2 style="font-size:clamp(1.5rem,2.6vw,2rem)">Написать нам</h2>'+reqForm('message')+'</div></div></section>';
+}
+
+function viewBook(){
+  initDraft();var d=state.draft;
+  return '<section class="ph-head band-d"><div class="wrap"><div class="stack"><nav class="crumbs" aria-label="Путь"><a href="#home">Главная</a><span>Бронирование</span></nav><h1>Бронирование</h1><p class="mute">Демонстрационная бронь: выберите даты и номер, посмотрите стоимость и получите код подтверждения. Данные остаются в вашем браузере.</p></div></div></section>'+
+  '<section class="sec band-l" style="padding-top:clamp(32px,5vw,56px)"><div class="wrap"><form id="bookform" class="bk" data-datepair novalidate><div><div id="bookerr" role="alert"></div>'+
+   '<div class="step"><h3><span class="n">1</span>Даты и гости</h3><div class="grid2"><label class="fl"><span>Заезд (с 14:00)</span><input type="date" id="bk-checkIn" name="in" data-d="in" min="'+iso(today())+'" value="'+d.in+'"></label><label class="fl"><span>Выезд (до 12:00)</span><input type="date" id="bk-checkOut" name="out" data-d="out" min="'+iso(pd(d.in)+DAY)+'" value="'+d.out+'"></label></div>'+
+    '<div class="grid3"><label class="fl"><span>Номера</span><select id="bk-rooms" name="rooms">'+opts(1,5,d.rooms)+'</select></label><label class="fl"><span>Взрослые</span><select id="bk-adults" name="adults">'+opts(1,8,d.adults)+'</select></label><label class="fl"><span>Дети</span><select id="bk-children" name="children">'+opts(0,6,d.children)+'</select></label></div></div>'+
+   '<div class="step"><h3><span class="n">2</span>Номер</h3><div class="rlist" id="bk-room" tabindex="-1" role="radiogroup" aria-label="Выбор номера"></div></div>'+
+   '<div class="step" style="border:0;margin:0;padding:0"><h3><span class="n">3</span>Контакты</h3><div class="grid2"><label class="fl"><span>Имя и фамилия</span><input id="bk-name" name="name" autocomplete="name" maxlength="80"></label><label class="fl"><span>Телефон</span><input id="bk-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="22" placeholder="+996 555 123 456"></label></div>'+
+    '<label class="fl"><span>Почта (по желанию)</span><input id="bk-email" name="email" type="email" autocomplete="email" maxlength="120"></label>'+
+    '<label class="fl"><span>Пожелания (по желанию)</span><textarea id="bk-note" name="note" maxlength="500"></textarea></label>'+
+    '<label class="chk"><input type="checkbox" name="transfer" id="bk-transfer"><span>Нужен трансфер из аэропорта. Стоимость уточнит отель, в расчёт она не входит.</span></label>'+
+    '<div class="hp" aria-hidden="true"><label>Сайт<input name="website" tabindex="-1" autocomplete="off"></label></div>'+
+    '<label class="chk"><input type="checkbox" name="consent" id="bk-consent"><span>Понимаю, что это демонстрация: бронь сохранится только в этом браузере, оплата не нужна, отель её не получит.</span></label></div></div>'+
+   '<aside><div class="sum sticky" id="summary" aria-live="polite"></div></aside></form></div></section>'+
+   '<div class="bkbar" id="bkbar"></div>';
+}
+function bookState(){
+  var f=document.getElementById('bookform');return f?readForm(f):null;
+}
+function renderPick(){
+  var f=document.getElementById('bookform');if(!f)return;
+  var v=readForm(f),a=pd(v.in),b=pd(v.out),ok=!isNaN(a)&&!isNaN(b)&&b>a,n=ok?Math.round((b-a)/DAY):0;
+  var rooms=+v.rooms,guests=(+v.adults)+(+v.children),items=load().items;
+  var sel=state.draft.roomId;
+  var html=ROOMS.map(function(r){
+    var cap=guests<=r.guests*rooms,av=ok?availability(r,v.in,v.out,items):0;
+    var can=ok&&cap&&av>=rooms,txt;
+    if(!ok)txt='<span class="av no">Выберите даты</span>';
+    else if(!cap)txt='<span class="av no">Рассчитан на '+guestsTxt(r.guests)+' в номере</span>';
+    else if(av<rooms)txt='<span class="av no">'+(av?'Свободно только '+av:'Нет свободных номеров')+'</span>';
+    else txt='<span class="av">Свободно номеров: '+av+'</span>';
+    var tot=ok?'<small>'+usd(r.price)+' × '+nightsTxt(n)+(rooms>1?' × '+roomsTxt(rooms):'')+' = <b>'+usd(r.price*n*rooms)+'</b></small>':'';
+    return '<label class="rp"><input type="radio" name="room" value="'+r.id+'"'+(can?'':' disabled')+(sel===r.id&&can?' checked':'')+'><span class="rpc"><span class="r1"><b>'+esc(r.name)+'</b><span>'+usd(r.price)+' <small>за ночь</small></span></span><small>'+esc(r.bed)+', до '+guestsTxt(r.guests)+(r.size?', '+r.size+' м²':'')+'</small>'+txt+tot+'</span></label>';
+  }).join('');
+  document.getElementById('bk-room').innerHTML=html;
+  var chosen=f.querySelector('input[name=room]:checked');
+  if(!chosen)state.draft.roomId=null;
+}
+function renderSummary(){
+  var f=document.getElementById('bookform');if(!f)return;
+  var v=readForm(f),a=pd(v.in),b=pd(v.out),ok=!isNaN(a)&&!isNaN(b)&&b>a,n=ok?Math.round((b-a)/DAY):0;
+  var r=roomById(state.draft.roomId),rooms=+v.rooms,q=r&&ok?quote(r,n,rooms):null;
+  var rows='<div class="kv"><div><span>Заезд</span><b>'+(isNaN(a)?'не выбран':fmtD(v.in,true))+'</b></div><div><span>Выезд</span><b>'+(isNaN(b)?'не выбран':fmtD(v.out,true))+'</b></div><div><span>Ночей</span><b>'+(ok?n:'нет')+'</b></div><div><span>Гости</span><b>'+(+v.adults)+' '+pl(+v.adults,['взрослый','взрослых','взрослых'])+(+v.children?', '+(+v.children)+' '+pl(+v.children,['ребёнок','ребёнка','детей']):'')+'</b></div><div><span>Номер</span><b>'+(r?esc(r.name)+', '+roomsTxt(rooms):'не выбран')+'</b></div></div>';
+  var calc=q?'<div class="kv"><div><span>'+usd(r.price)+' × '+nightsTxt(n)+' × '+roomsTxt(rooms)+'</span><b>'+usd(q.sub)+'</b></div></div>':'<p class="mute" style="font-size:.9rem">Выберите даты и номер, чтобы увидеть стоимость.</p>';
+  var total=q?usd(q.total):'—';
+  document.getElementById('summary').innerHTML='<h3>Ваша бронь</h3>'+rows+calc+'<div class="tot"><span class="mute">Итого</span><b>'+total+'</b></div><button class="btn" type="submit">Подтвердить тестовую бронь</button><p class="mute" style="font-size:.82rem">Оплата не требуется. Это демонстрация, отель бронь не получит.</p>';
+  document.getElementById('bkbar').innerHTML='<div><small>Итого</small><b>'+total+'</b></div><button class="btn" type="submit" form="bookform">Подтвердить</button>';
+}
+function refreshBook(){
+  var f=document.getElementById('bookform');if(!f)return;
+  var v=readForm(f);
+  state.draft.in=v.in||state.draft.in;state.draft.out=v.out||state.draft.out;state.draft.rooms=+v.rooms||1;state.draft.adults=+v.adults||1;state.draft.children=+v.children||0;
+  var ch=f.querySelector('input[name=room]:checked');state.draft.roomId=ch?ch.value:state.draft.roomId;
+  renderPick();renderSummary();
+}
+
+function findItem(id){var it=load().items;for(var i=0;i<it.length;i++)if(it[i].id===id)return it[i];return null;}
+function viewConfirm(){
+  var it=state.last?findItem(state.last):null;
+  if(!it){var all=load().items.filter(function(x){return !x.seed&&x.type==='room';}).sort(function(a,b){return b.createdAt-a.createdAt;});it=all[0]||null;}
+  if(!it)return '<section class="sec band-d"><div class="wrap stack"><h1>Брони пока нет</h1><p class="mute">Оформите тестовую бронь, и подтверждение появится здесь.</p><div><a class="btn" href="#book">Забронировать</a></div></div></section>';
+  var r=roomById(it.roomId),n=nightsOf(it.checkIn,it.checkOut);
+  return '<section class="sec band-l"><div class="wrap stack" style="max-width:760px;gap:28px"><span class="eyebrow">Тестовая бронь принята</span><h1 style="font-size:clamp(1.9rem,4.4vw,3rem)">Спасибо, '+esc(it.name.split(' ')[0])+'</h1>'+
+   '<div><span class="mute" style="font-size:.9rem;display:block;margin-bottom:8px">Код брони</span><span class="code">'+esc(it.code)+'</span></div>'+
+   '<div class="kv"><div><span>Номер</span><b>'+esc(r?r.name:'')+', '+roomsTxt(it.rooms)+'</b></div><div><span>Заезд</span><b>'+fmtD(it.checkIn,true)+', с 14:00</b></div><div><span>Выезд</span><b>'+fmtD(it.checkOut,true)+', до 12:00</b></div><div><span>Ночей</span><b>'+n+'</b></div><div><span>Гости</span><b>'+it.adults+' взр.'+(it.children?', '+it.children+' дет.':'')+'</b></div><div><span>Контакты</span><b>'+esc(it.name)+', '+esc(it.phone)+'</b></div><div><span>Статус</span><b>Новая, ожидает подтверждения в демо-панели</b></div></div>'+
+   '<div class="tot"><span class="mute">Итого к оплате в отеле</span><b>'+usd(it.total)+'</b></div>'+
+   '<div class="note">Это демонстрационная бронь: она сохранена только в вашем браузере и не передана отелю. Оплата не списывалась. Её можно посмотреть и изменить в демо-панели.</div>'+
+   '<div class="crow"><a class="btn" href="#admin">Открыть демо-панель</a><a class="btn ghost" href="#home">На главную</a><a class="btn ghost" href="#book">Ещё одна бронь</a></div></div></section>';
+}
+
+/* ---------- Admin ---------- */
+var TYPE_L={room:'Номер',table:'Столик',event:'Мероприятие',message:'Сообщение'};
+var ST_L={new:'Новая',confirmed:'Подтверждена',cancelled:'Отменена'};
+function admSummary(it){
+  if(it.type==='room'){var r=roomById(it.roomId);return '<b>'+esc(r?r.name:'')+'</b><br><span class="mute" style="font-size:.9rem">'+fmtD(it.checkIn)+' — '+fmtD(it.checkOut)+', '+nightsTxt(nightsOf(it.checkIn,it.checkOut))+', '+roomsTxt(it.rooms)+'</span>';}
+  if(it.type==='table')return '<b>Столик на '+it.guests+'</b><br><span class="mute" style="font-size:.9rem">'+fmtD(it.date)+', '+esc(it.time)+'</span>';
+  if(it.type==='event')return '<b>Зал Gallery, '+it.guests+' гостей</b><br><span class="mute" style="font-size:.9rem">'+fmtD(it.date)+', '+esc(it.layout||'')+'</span>';
+  return '<b>Сообщение</b><br><span class="mute" style="font-size:.9rem">'+esc(clean(it.note,70))+'</span>';
+}
+function admRow(it){
+  var del=state.confirmDel===it.id;
+  var acts=(it.status!=='confirmed'&&it.type!=='message'?'<button class="btn sm" data-act="st" data-id="'+it.id+'" data-v="confirmed">Подтвердить</button>':'')+
+   (it.status!=='cancelled'&&it.type!=='message'?'<button class="btn ghost sm" data-act="st" data-id="'+it.id+'" data-v="cancelled">Отменить</button>':'')+
+   (it.status!=='new'&&it.type!=='message'?'<button class="btn ghost sm" data-act="st" data-id="'+it.id+'" data-v="new">Вернуть в новые</button>':'')+
+   (del?'<span style="align-self:center">Удалить безвозвратно?</span><button class="btn danger sm" data-act="del-yes" data-id="'+it.id+'">Да, удалить</button><button class="btn ghost sm" data-act="del-no">Нет</button>':'<button class="btn danger sm" data-act="del" data-id="'+it.id+'">Удалить</button>');
+  return '<article class="arow"><div class="hd"><span class="code-s">'+esc(it.code)+'</span><span><span class="badge">'+TYPE_L[it.type]+'</span>'+(it.seed?' <span class="badge">пример</span>':'')+'</span><span>'+esc(it.name)+'<br><span class="mute" style="font-size:.9rem">'+esc(it.phone)+'</span></span><span>'+admSummary(it)+'</span><b>'+(it.type==='room'?usd(it.total):'')+'</b><span class="pill '+it.status+'">'+ST_L[it.status]+'</span></div>'+
+   '<details><summary>Подробности и действия</summary><div class="more"><div class="kv"><div><span>Создано</span><b>'+new Date(it.createdAt).toLocaleString('ru-RU',{day:'numeric',month:'long',hour:'2-digit',minute:'2-digit'})+'</b></div>'+(it.email?'<div><span>Почта</span><b>'+esc(it.email)+'</b></div>':'')+(it.type==='room'?'<div><span>Гости</span><b>'+it.adults+' взр.'+(it.children?', '+it.children+' дет.':'')+'</b></div><div><span>Трансфер</span><b>'+(it.transfer?'нужен, цену уточнить':'не нужен')+'</b></div>':'')+'<div><span>Комментарий</span><b>'+(esc(it.note)||'нет')+'</b></div></div><div class="acts">'+acts+'</div></div></details></article>';
+}
+function admList(){
+  var q=state.aq.toLowerCase();
+  var list=load().items.filter(function(it){
+    if(state.af!=='all'&&it.status!==state.af)return false;
+    if(state.at!=='all'&&it.type!==state.at)return false;
+    if(q&&(it.code+' '+it.name+' '+it.phone+' '+(it.email||'')).toLowerCase().indexOf(q)<0)return false;
+    return true;}).sort(function(a,b){return b.createdAt-a.createdAt;});
+  return list.length?list.map(admRow).join(''):'<div class="empty">Ничего не найдено. Измените фильтр или оформите тестовую бронь на странице «Бронирование».</div>';
+}
+function viewAdmin(){
+  if(!state.admin){
+    return '<section class="ph-head band-d"><div class="wrap"><div class="stack"><nav class="crumbs" aria-label="Путь"><a href="#home">Главная</a><span>Демо-панель</span></nav><h1>Демо-панель администратора</h1></div></div></section>'+
+    '<section class="sec band-l"><div class="wrap"><form id="admgate" class="stack" style="max-width:420px" novalidate><div id="admgate-err" role="alert"></div><p>Панель показывает тестовые брони и заявки, сохранённые в этом браузере. Демо-пароль: <b>bhotel</b>.</p><label class="fl"><span>Пароль</span><input type="password" id="adm-pass" name="pass" autocomplete="off"></label><div><button class="btn" type="submit">'+ic('lock',18)+' Войти</button></div></form></div></section>';
+  }
+  var it=load().items,rooms=it.filter(function(x){return x.type==='room';});
+  var nNew=it.filter(function(x){return x.status==='new'&&x.type!=='message';}).length;
+  var conf=rooms.filter(function(x){return x.status==='confirmed';});
+  var rev=conf.reduce(function(s,x){return s+x.total;},0);
+  var tabs=[['all','Все'],['new','Новые'],['confirmed','Подтверждённые'],['cancelled','Отменённые']].map(function(c){return '<button class="chip" data-act="af" data-v="'+c[0]+'" aria-pressed="'+(state.af===c[0])+'">'+c[1]+'</button>';}).join('');
+  return '<section class="ph-head band-d"><div class="wrap"><div class="stack"><nav class="crumbs" aria-label="Путь"><a href="#home">Главная</a><span>Демо-панель</span></nav><h1>Демо-панель администратора</h1><p class="mute">Брони и заявки из этого браузера. Изменения сохраняются локально и не уходят в отель.</p></div></div></section>'+
+  '<section class="sec band-l" style="padding-top:clamp(28px,4vw,48px)"><div class="wrap stack" style="gap:24px"><div class="stats" id="admstats"><div class="stat"><b>'+nNew+'</b><span>новых</span></div><div class="stat"><b>'+conf.length+'</b><span>подтверждённых броней номеров</span></div><div class="stat"><b>'+usd(rev)+'</b><span>сумма подтверждённых</span></div><div class="stat"><b>'+it.length+'</b><span>всего записей</span></div></div>'+
+   '<div class="tools"><div class="chips" role="group" aria-label="Статус">'+tabs+'</div><label class="fl"><span>Тип</span><select id="adm-type" name="type"><option value="all">Все типы</option><option value="room"'+(state.at==='room'?' selected':'')+'>Номера</option><option value="table"'+(state.at==='table'?' selected':'')+'>Столики</option><option value="event"'+(state.at==='event'?' selected':'')+'>Мероприятия</option><option value="message"'+(state.at==='message'?' selected':'')+'>Сообщения</option></select></label><label class="fl"><span>Поиск по коду, имени, телефону</span><input id="adm-q" type="search" value="'+esc(state.aq)+'" maxlength="60"></label></div>'+
+   '<div class="adm" id="admlist">'+admList()+'</div>'+
+   '<div class="crow">'+(state.confirmReset?'<span>Вернуть примеры и удалить свои записи?</span><button class="btn danger sm" data-act="reset-yes">Да, сбросить</button><button class="btn ghost sm" data-act="reset-no">Нет</button>':'<button class="btn ghost sm" data-act="reset">Сбросить демо-данные</button>')+'<button class="btn ghost sm" data-act="logout">Выйти</button></div></div></section>';
+}
+
+/* ---------- Rendering ---------- */
+function readForm(f){
+  var o={},els=f.elements;
+  for(var i=0;i<els.length;i++){var e=els[i];if(!e.name)continue;
+    if(e.type==='checkbox')o[e.name]=e.checked;
+    else if(e.type==='radio'){if(e.checked)o[e.name]=e.value;}
+    else o[e.name]=e.value;}
+  return o;
+}
+function render(){
+  var r=route(),html,app=document.getElementById('app');
+  if(r.name==='room')html=viewRoom(r.id);
+  else if(!KNOWN[r.name])html=view404();
+  else html={home:viewHome,rooms:viewRooms,restaurant:viewRestaurant,conference:viewConference,services:viewServices,contacts:viewContacts,book:viewBook,confirmation:viewConfirm,admin:viewAdmin}[r.name]();
+  app.innerHTML='<div class="shell'+(r.name==='book'?' bk-on':'')+'"><button class="skip" data-act="skip">Перейти к содержанию</button>'+header(r)+'<main id="main" tabindex="-1" style="outline:none">'+html+'</main>'+footer()+'</div>'+(r.name==='book'?'':tabbar(r))+sheet(r);
+  if(r.name==='book'){renderPick();renderSummary();}
+  if(r.name==='room')panelOut();
+  document.documentElement.classList.remove('lock');
+  window.scrollTo(0,0);
+}
+var toastT;
+function toast(m){var t=document.getElementById('toast');if(!t)return;t.textContent=m;t.classList.add('on');clearTimeout(toastT);toastT=setTimeout(function(){t.classList.remove('on');},2600);}
+function showErrors(boxId,errs,prefix){
+  var box=document.getElementById(boxId);
+  if(box)box.innerHTML=errs.length?'<div class="err"><b>Проверьте данные</b><ul>'+errs.map(function(e){return '<li>'+esc(e.msg)+'</li>';}).join('')+'</ul></div>':'';
+  var f=document.querySelectorAll('[aria-invalid]');for(var i=0;i<f.length;i++)f[i].removeAttribute('aria-invalid');
+  var first=null;
+  errs.forEach(function(e){var el=document.getElementById(prefix+e.field)||document.querySelector('#'+prefix.replace(/-$/,'')+' [name="'+e.field+'"]');if(el){el.setAttribute('aria-invalid','true');if(!first)first=el;}});
+  if(first){first.focus({preventScroll:false});}
+  else if(box&&errs.length){box.scrollIntoView({block:'center'});}
+}
+function fixDates(t){
+  var p=t.closest('[data-datepair]');if(!p)return;
+  var i=p.querySelector('[data-d=in]'),o=p.querySelector('[data-d=out]');if(!i||!o)return;
+  var a=pd(i.value);if(isNaN(a))return;
+  o.min=iso(a+DAY);var b=pd(o.value);if(isNaN(b)||b<=a)o.value=iso(a+DAY);
+}
+function saveDraftFrom(v){
+  if(v.in)state.draft.in=v.in;if(v.out)state.draft.out=v.out;
+  if(v.rooms)state.draft.rooms=+v.rooms;if(v.adults)state.draft.adults=+v.adults;if(v.children!=null&&v.children!=='')state.draft.children=+v.children;
+}
+function go(h){if(location.hash==='#'+h)render();else location.hash=h;}
+
+/* ---------- Events ---------- */
+function toggleSheet(){
+  var s=document.getElementById('sheet');if(!s)return;
+  var open=s.hidden;s.hidden=!open;document.documentElement.classList.toggle('lock',open);
+  var btns=document.querySelectorAll('.hdr .menu-btn');for(var i=0;i<btns.length;i++)btns[i].setAttribute('aria-expanded',String(open));
+  if(open){var c=s.querySelector('.menu-btn');if(c)c.focus();}
+}
+function copyText(t,btn){
+  var done=function(){toast('Скопировано');};
+  var fb=function(){var src=btn.closest('.crow').querySelector('[data-copy-src]');if(src){var rg=document.createRange();rg.selectNodeContents(src);var s=window.getSelection();s.removeAllRanges();s.addRange(rg);}toast('Текст выделен, скопируйте его вручную');};
+  try{navigator.clipboard.writeText(t).then(done,fb);}catch(e){fb();}
+}
+function submitRequest(f){
+  var kind=f.dataset.kind,v=readForm(f),id=f.id,errs;
+  if(v.website)return;
+  v.guests=+v.guests;errs=validateRequest(v,kind);
+  showErrors(id+'-err',errs,id+'-');
+  if(errs.length)return;
+  if(Date.now()-state.lastSubmit<1200){toast('Подождите секунду и повторите');return;}state.lastSubmit=Date.now();
+  var db=load(),it={id:'u'+Date.now().toString(36)+Math.floor(Math.random()*1e4),code:genCode(db.items),type:kind,status:'new',createdAt:Date.now(),
+    name:clean(v.name,80),phone:clean(v.phone,22),email:clean(v.email,120),note:clean(v.note,1000)};
+  if(kind!=='message'){it.date=v.date;it.guests=v.guests;}
+  if(kind==='table')it.time=clean(v.time,5);
+  if(kind==='event')it.layout=clean(v.layout,20);
+  db.items.push(it);save();
+  var msg={table:'Заявка на столик',event:'Запрос на зал',message:'Сообщение'}[kind];
+  f.innerHTML='<div class="note"><b>'+msg+' сохранён(а) в демо.</b> Код: '+esc(it.code)+'. Отелю ничего не отправлено. Посмотреть запись можно в <a href="#admin">демо-панели</a>.</div>';
+  toast(msg+' сохранён(а)');
+}
+function submitBooking(f){
+  var v=readForm(f);if(v.website)return;
+  var q={checkIn:v.in,checkOut:v.out,adults:+v.adults,children:+v.children,rooms:+v.rooms,roomId:v.room||state.draft.roomId,name:v.name,phone:v.phone,email:v.email,consent:v.consent};
+  var db=load(),errs=validateBooking(q,db.items);
+  showErrors('bookerr',errs,'bk-');
+  if(errs.length)return;
+  if(Date.now()-state.lastSubmit<1200){toast('Подождите секунду и повторите');return;}state.lastSubmit=Date.now();
+  var room=roomById(q.roomId),n=nightsOf(q.checkIn,q.checkOut);
+  var it={id:'u'+Date.now().toString(36)+Math.floor(Math.random()*1e4),code:genCode(db.items),type:'room',status:'new',createdAt:Date.now(),roomId:room.id,checkIn:q.checkIn,checkOut:q.checkOut,rooms:q.rooms,adults:q.adults,children:q.children,total:quote(room,n,q.rooms).total,name:clean(q.name,80),phone:clean(q.phone,22),email:clean(q.email,120),note:clean(v.note,500),transfer:!!v.transfer};
+  db.items.push(it);save();state.last=it.id;state.draft.roomId=null;
+  location.hash='confirmation';
+}
+function bindEvents(){
+document.addEventListener('click',function(e){
+  var t=e.target.closest('[data-act]');
+  if(!t){var sl=e.target.closest('#sheet a');if(sl&&sl.getAttribute('href')==='#'+(route().name==='room'?'room-'+route().id:route().name)){toggleSheet();}return;}
+  var a=t.dataset.act;
+  if(a==='menu'){toggleSheet();}
+  else if(a==='skip'){var m=document.getElementById('main');if(m){m.focus();m.scrollIntoView();}}
+  else if(a==='setfilter'){state.filter=t.dataset.v;if(route().name==='rooms')setTimeout(render,0);}
+  else if(a==='chip'){state.filter=t.dataset.v;var cs=document.querySelectorAll('.chip[data-act=chip]');for(var i=0;i<cs.length;i++)cs[i].setAttribute('aria-pressed',String(cs[i].dataset.v===state.filter));document.getElementById('rlist').innerHTML=roomsListHTML();}
+  else if(a==='bookroom'){state.draft.roomId=t.dataset.id;}
+  else if(a==='gal'){var idx=t.dataset.i,ms=document.querySelectorAll('.gm'),bs=document.querySelectorAll('.thumbs button');for(var j=0;j<ms.length;j++)ms[j].hidden=ms[j].dataset.i!==idx;for(var k=0;k<bs.length;k++)bs[k].setAttribute('aria-pressed',String(bs[k].dataset.i===idx));}
+  else if(a==='copy'){copyText(t.dataset.v,t);}
+  else if(a==='af'){state.af=t.dataset.v;render0();}
+  else if(a==='st'){var it=findItem(t.dataset.id);if(it){it.status=t.dataset.v;save();state.confirmDel=null;render0();toast('Статус: '+ST_L[it.status].toLowerCase());}}
+  else if(a==='del'){state.confirmDel=t.dataset.id;render0(true,t.dataset.id);}
+  else if(a==='del-no'){state.confirmDel=null;render0(true);}
+  else if(a==='del-yes'){var db=load();db.items=db.items.filter(function(x){return x.id!==t.dataset.id;});save();state.confirmDel=null;render0();toast('Запись удалена');}
+  else if(a==='reset'){state.confirmReset=true;render0();}
+  else if(a==='reset-no'){state.confirmReset=false;render0();}
+  else if(a==='reset-yes'){mem={items:seed()};save();state.confirmReset=false;state.af='all';state.at='all';state.aq='';render0();toast('Демо-данные сброшены');}
+  else if(a==='logout'){state.admin=false;render();}
+});
+function render0(keepScroll){var y=window.scrollY;render();if(keepScroll!==undefined||true)window.scrollTo(0,y);}
+document.addEventListener('change',function(e){
+  var t=e.target;
+  if(t.closest('[data-datepair]'))fixDates(t);
+  var f=t.closest('form');
+  if(f&&f.id==='bookform'){if(/^(name|phone|email|note|transfer|consent|website)$/.test(t.name))return;refreshBook();return;}
+  if(f&&f.id==='roomchk'){saveDraftFrom(readForm(f));var l=document.getElementById('rlist');if(l)l.innerHTML=roomsListHTML();return;}
+  if(f&&f.id==='roompanel'){saveDraftFrom(readForm(f));panelOut();return;}
+  if(f&&f.id==='qbar'){saveDraftFrom(readForm(f));return;}
+  if(t.id==='adm-type'){state.at=t.value;var l2=document.getElementById('admlist');if(l2)l2.innerHTML=admList();}
+});
+document.addEventListener('input',function(e){
+  if(e.target.id==='adm-q'){state.aq=clean(e.target.value,60);var l=document.getElementById('admlist');if(l)l.innerHTML=admList();}
+});
+document.addEventListener('submit',function(e){
+  var f=e.target;e.preventDefault();
+  if(f.id==='qbar'){var v=readForm(f),a=pd(v.in),b=pd(v.out);
+    if(isNaN(a)||isNaN(b)||b<=a||a<today()){toast('Проверьте даты: выезд должен быть позже заезда');return;}
+    saveDraftFrom(v);go('book');}
+  else if(f.id==='roompanel'){var v2=readForm(f),a2=pd(v2.in),b2=pd(v2.out);
+    if(isNaN(a2)||isNaN(b2)||b2<=a2||a2<today()){toast('Проверьте даты: выезд должен быть позже заезда');return;}
+    saveDraftFrom(v2);state.draft.roomId=f.dataset.room;go('book');}
+  else if(f.id==='bookform'){submitBooking(f);}
+  else if(f.dataset&&f.dataset.kind){submitRequest(f);}
+  else if(f.id==='admgate'){
+    var pw=document.getElementById('adm-pass').value;
+    if(pw==='bhotel'){state.admin=true;render();}
+    else{document.getElementById('admgate-err').innerHTML='<div class="err">Неверный пароль. Демо-пароль: bhotel.</div>';var el=document.getElementById('adm-pass');el.setAttribute('aria-invalid','true');el.focus();}
+  }
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'){var s=document.getElementById('sheet');if(s&&!s.hidden)toggleSheet();}
+});
+window.addEventListener('hashchange',render);
+}
+
+function boot(){load();bindEvents();render();}
+
+var api={ROOMS:ROOMS,quote:quote,availability:availability,validateBooking:validateBooking,validateRequest:validateRequest,pd:pd,iso:iso,today:today,nightsOf:nightsOf,seed:seed,genCode:genCode,pl:pl,esc:esc,clean:clean,occupied:occupied,roomById:roomById};
+if(typeof document!=='undefined'&&document.getElementById('app'))boot();
+else if(typeof globalThis!=='undefined')globalThis.__BH=api;
+})();
+</script>
+
+</body></html>
